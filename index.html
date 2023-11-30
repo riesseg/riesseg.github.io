@@ -1,13 +1,19 @@
-<html style="height: 100%;">
+<html>
     <head>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="./style.css" />
         <script src="https://kit.fontawesome.com/92c9b58fa8.js" crossorigin="anonymous"></script>
     </head>
-    <body style="height: 100%;">
+    <body>
         <div class="page">
             <div class="container">
-                <div id="bingo" class="hidden bingo-title"><img src="./bubuchenewsub.gif"><span class="rotating"><span class="bingo-txt">BINGO</span><button onclick="continueBingo()">Continuer</button></span><img src="./bubuchenewsub.gif"></div>
+                <div id="bingo" class="hidden bingo-title">
+                    <img src="./bubuchenewsub.gif">
+                    <span class="rotating">
+                        <span class="bingo-txt">BINGO</span>
+                    <button onclick="continueBingo()">Continuer</button>
+                </span><img src="./bubuchenewsub.gif">
+            </div>
                 <div class="cell" id="c0"><span class="cell-text cell-0">test</span></div>
                 <div class="cell" id="c1"><span class="cell-text cell-1">test</span></div>
                 <div class="cell" id="c2"><span class="cell-text cell-2">test</span></div>
@@ -35,7 +41,7 @@
                 <div class="cell" id="c24"><span class="cell-text cell-24">test</span></div>
             </div>
             <div class="side-panel">
-                <h1 class="title">Bingo Buche !</h1>
+                <h1 class="title">Bingo !</h1>
                 <p><img src="./wazotest2_112px.png" alt="wazo" class="wazo" ></p>
                 <button onClick="window.location.reload();">Creer un nouveau bingo</button>
                 <button onClick="setTransparencyMode()">Mode transparence</button>
