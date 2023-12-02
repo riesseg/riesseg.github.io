@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -85,23 +86,7 @@
                 "\"nature impitoyable\"",
                 "gros plan carcasse"];
 
-            function shuffle(array) {
-                let currentIndex = array.length,  randomIndex;
 
-                // Tant qu'il reste des éléments à mélanger...
-                while (currentIndex != 0) {
-
-                    // Prendre un élément au hasard...
-                    randomIndex = Math.floor(Math.random() * currentIndex);
-                    currentIndex--;
-
-                    // Et l'échanger avec l'element actuel.
-                    [array[currentIndex], array[randomIndex]] = [
-                    array[randomIndex], array[currentIndex]];
-                }
-
-                return array;
-            }
 
             function setCell(item, index, arr) {
                 $(".cell-"+ index).text(item)
@@ -149,7 +134,7 @@
             }
 
             $( document ).ready(function() {
-                setGrid();
+                //setGrid();
             });
 
             $(".cell").click(function() {
