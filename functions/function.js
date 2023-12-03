@@ -41,11 +41,8 @@ export function setGrid(fileUrl) {
     //console.log(lines);
     var grille = lines;
     // Faites quelque chose avec le tableau de lignes
-    console.log(grille);
-    console.log(grille.length);
-    var grille2 = getRandomSubset(grille);
-    console.log(grille2);
-    grille2.forEach(setCell);
+    grille = getRandomSubset(grille);
+    grille.forEach(setCell);
 
   })
   .catch(error => {

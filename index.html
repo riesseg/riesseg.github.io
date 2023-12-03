@@ -11,11 +11,11 @@
         <div class="page">
             <div class="container">
                 <div id="bingo" class="hidden bingo-title">
-                    <img src="./bubuchenewsub.gif">
+                    <img src="./img/rain/bubuchenewsub.gif">
                     <span class="rotating">
                         <span class="bingo-txt">BINGO</span>
                     <button onclick="continueBingo()">Continuer</button>
-                </span><img src="./bubuchenewsub.gif">
+                </span><img src="./img/rain/bubuchenewsub.gif">
             </div>
                 <div class="cell" id="c0"><span class="cell-text cell-0">test</span></div>
                 <div class="cell" id="c1"><span class="cell-text cell-1">test</span></div>
@@ -45,7 +45,7 @@
             </div>
             <div class="side-panel">
                 <h1 class="title">Bingo !</h1>
-                <p><img src="./wazotest2_112px.png" alt="wazo" class="wazo" ></p>
+                <p><img src="./img/rain/wazotest2_112px.png" alt="wazo" class="wazo" ></p>
                 <button onClick="window.location.reload();">Creer un nouveau bingo</button>
                 <button onClick="setTransparencyMode()">Mode transparence</button>
                 <audio controls id="birdmachine" class="hidden">
@@ -80,7 +80,7 @@
                 let rngImg = Math.floor((Math.random() * 4));
                 let rngX = Math.floor((Math.random() * ($(window).width() - 91)));
                 let rngY = Math.floor((Math.random() * ($(window).height() - 91)));
-                $( "#rain" ).append(`<img src="./${images[rngImg]}" style="top: ${rngY}px;left: ${rngX}px;" class="floating pop">`);
+                $( "#rain" ).append(`<img src="./img/rain/${images[rngImg]}" style="top: ${rngY}px;left: ${rngX}px;" class="floating pop">`);
             }
 
             function checkLine(indexesToCheck) {
