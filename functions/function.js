@@ -23,10 +23,33 @@ export function getRandomSubset(array) {
   const shuffledArray = array.slice().sort(() => Math.random() - 0.5);
 
   // Garantir que l'élément à l'index 12 est "bonus"
-  shuffledArray[12] = "bonus";
+  shuffledArray[12] = "Bonus";
 
   // Extraire les 25 premiers éléments du tableau mélangé
   const resultArray = shuffledArray.slice(0, 25);
 
   return resultArray;
 };
+
+function setCell(item, index, arr) {
+  $(".cell-"+ index).text(item)
+};
+
+export function subsetGrid(fileUrl) {
+  readFileAndReturnArray(fileUrl)
+  .then(lines => {
+    //console.log(lines);
+    grille = lines;
+    // Faites quelque chose avec le tableau de lignes
+    console.log(grille);
+    console.log(grille.length);
+    grille2 = getRandomSubset(grille);
+    console.log(grille2);
+    gridCells.forEach(setCell);
+
+  })
+  .catch(error => {
+    console.error('Une erreur s\'est produite :', error);
+    fichierLoaded = 2;
+  });
+}
