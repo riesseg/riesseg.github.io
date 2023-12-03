@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
         <link rel="stylesheet" type="text/css" href="./style.css" />
         <script src="https://kit.fontawesome.com/92c9b58fa8.js" crossorigin="anonymous"></script>
         <script type="module" src="./functions/main.js"></script>
@@ -61,43 +61,8 @@
             var displayInterval;
             var hasAnimationBeenTriggered = false;
             var audio = document.getElementById("birdmachine"); 
-            const cells = ["ça ken SALE", 
-                "musique trop épique", 
-                "animal en voie de disparition",
-                "timelapse nuages",
-                "combat contre les éléments",
-                "slowmo inutile",
-                "\"La nature reprend ses droits\"",
-                "entre tradition & modernité/terre de contrastes etc",
-                "baston pour la dominance",
-                "parade nuptiale chelou",
-                "bébé animal mignon",
-                "plan drone",
-                "licence poétique approximative",
-                "CACA !",
-                "sound designer en roue libre",
-                "3D éclatée",
-                "sous titres inventent des applaudissements",
-                "l'eau, bien le plus précieux",
-                "écotourisme",
-                "le problème c'est nous",
-                "animal mignon se fait manger par un prédateur",
-                "métaphore filée claquée au sol",
-                "\"nature impitoyable\"",
-                "gros plan carcasse"];
 
-
-
-            function setCell(item, index, arr) {
-                $(".cell-"+ index).text(item)
-            }
-
-            function setGrid() {
-                let gridCells = [...cells];
-                shuffle(gridCells);
-                gridCells.splice(12, 0, "FREE SPACE");
-                gridCells.forEach(setCell);
-            }
+            
 
             function isSelected(index) {
                 return $("#c"+ index).hasClass("selected")
@@ -132,10 +97,6 @@
                 $("#bingo").addClass("hidden");
                 audio.pause();
             }
-
-            $( document ).ready(function() {
-                //setGrid();
-            });
 
             $(".cell").click(function() {
                 $(this).toggleClass('selected');
