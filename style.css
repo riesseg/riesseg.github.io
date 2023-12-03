@@ -1,7 +1,5 @@
-@font-face {
-    font-family: bingo;
-    src: url(./The\ Wild\ Breath\ of\ Zelda.otf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
 
 html {
     background-color: #526870;
@@ -26,33 +24,24 @@ html {
     width: 200px;
 }
 
-.container {
+#grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 5px;
-    width: 48%;
-    position: relative;
 }
 
 .cell {
-    background-color: #403b2f;
+    background-color: #d1cfc8;
+    border: 1px solid #ffffff;
+    color: #000000;
+    border-radius: 10px;
     aspect-ratio: 1;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
-    font-size: 21px;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    border: 1px solid black;
-}
-
-.cell-text {
-    color: white;
-    border-radius: 5px;
-    width: 100%;
 }
 
 .cell.selected {
