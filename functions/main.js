@@ -9,5 +9,12 @@ export function hello() {
 
  $( document ).ready(function() {
     setGrid("../grilles/secret_histoire.txt");
+    
+});
+
+$('#newGrid').on('click',function (e) {
+    //e.preventDefault(); //optional
+    //some code
+    setGrid("../grilles/secret_histoire.txt");
 });
   
