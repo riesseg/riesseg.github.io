@@ -2,7 +2,7 @@ export function hello(){
     console.log('hello');
 };
 
-export function readFileAndReturnArray(fileUrl) {
+export async function readFileAndReturnArray(fileUrl) {
   return new Promise((resolve, reject) => {
     $.get(fileUrl, function(data) {
       var lignes = data.split(/\r\n|\n/);
@@ -13,20 +13,32 @@ export function readFileAndReturnArray(fileUrl) {
   });
 };
 
-export function getRandomSubset(array) {
+export async function getRandomSubset(array) {
+  var toShort = false;
+  var resultArray = new Array();
   // S'assurer que le tableau d'origine a au moins 25 éléments
-  if (array.length < 24) {
-    throw new Error("Le tableau doit avoir au moins 25 éléments.");
+  if (array.length <= 25) {
+    toShort = true;
   }
 
-  // Mélanger le tableau d'origine
-  const shuffledArray = array.slice().sort(() => Math.random() - 0.5);
+  if(toShort = false)
+  {
+      // Extraire les 25 premiers éléments du tableau mélangé
+      resultArray = array.slice(0, 25);
+  }
+  else 
+  {
+    //si la liste est trop courte, alors on va compléter avec la grille standard.
+    var standardGrid = await readFileAndReturnArray("../grilles/standard.txt");
+    resultArray = array.slice(0, array.length);
+    standardGrid = standardGrid.slice().sort(() => Math.random() - 0.5);
+    resultArray = resultArray.concat(standardGrid.slice(0, (25-array.length)));
+  }
+  // On mélange le tableau
+  resultArray = resultArray.slice().sort(() => Math.random() - 0.5);
 
   // Garantir que l'élément à l'index 12 est "bonus"
-  shuffledArray[12] = "Bonus";
-
-  // Extraire les 25 premiers éléments du tableau mélangé
-  const resultArray = shuffledArray.slice(0, 25);
+  resultArray[12] = "Joker";
 
   return resultArray;
 };
@@ -35,19 +47,10 @@ function setCell(item, index, arr) {
   $(".cell-"+ index).text(item)
 };
 
-export function setGrid(fileUrl) {
-  readFileAndReturnArray(fileUrl)
-  .then(lines => {
-    //console.log(lines);
-    var grille = lines;
-    // Faites quelque chose avec le tableau de lignes
-    grille = getRandomSubset(grille);
-    grille.forEach(setCell);
-
-  })
-  .catch(error => {
-    console.error('Une erreur s\'est produite :', error);
-  });
+export async function setGrid(fileUrl) {
+  var grille = await readFileAndReturnArray(fileUrl);
+  grille = await getRandomSubset(grille);
+  grille.forEach(setCell);
 }
 
 export function resetGrid(){
