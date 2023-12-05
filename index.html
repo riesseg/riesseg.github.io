@@ -2,21 +2,45 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
-        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <link rel="stylesheet" type="text/css" href="./ressources/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="./ressources/css/menu.css" />
         <script src="https://kit.fontawesome.com/92c9b58fa8.js" crossorigin="anonymous"></script>
         <script type="module" src="./functions/main.js"></script>
 
     </head>
     <body>
         <div class="page">
+            <nav role="navigation">
+                <div id="menuToggle">
+                  <input type="checkbox" />
+                  
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  
+                  <ul id="menu">
+                    <a href="#"><li>Home</li></a>
+                    <a href="#"><li>About</li></a>
+                    <a href="#"><li>Info</li></a>
+                    <a href="#"><li>Contact</li></a>
+                    <div class="credit">
+                        menu by : <a href="https://erikterwan.com/" target="_blank">erikterwan</a><br />
+                        origin bingo by : Plogojowitz<br />
+                        new bingo by : Gollgotth    
+                    </div>
+                    
+                  </ul>
+                </div>
+              </nav>
             <div class="container">
                 <div id="bingo" class="hidden bingo-title">
-                    <img src="./img/rain/bubuchenewsub.gif">
+                    <img src="./ressources/rain/bubuchenewsub.gif">
                     <span class="rotating">
                         <span class="bingo-txt">BINGO</span>
                     <button onclick="continueBingo()">Continuer</button>
-                </span><img src="./img/rain/bubuchenewsub.gif">
+                </span><img src="./ressources/rain/bubuchenewsub.gif">
             </div>
+            <div id = "grid">
                 <div class="cell" id="c0"><span class="cell-text cell-0">test</span></div>
                 <div class="cell" id="c1"><span class="cell-text cell-1">test</span></div>
                 <div class="cell" id="c2"><span class="cell-text cell-2">test</span></div>
@@ -43,13 +67,14 @@
                 <div class="cell" id="c23"><span class="cell-text cell-23">test</span></div>
                 <div class="cell" id="c24"><span class="cell-text cell-24">test</span></div>
             </div>
+            </div>
             <div class="side-panel">
                 <h1 class="title">Bingo !</h1>
-                <p><img src="./img/rain/wazotest2_112px.png" alt="wazo" class="wazo" ></p>
+                <p><img src="./ressources/img/wazotest2_112px.png" alt="wazo" class="wazo" ></p>
                 <button onClick="window.location.reload();">Creer un nouveau bingo</button>
                 <button onClick="setTransparencyMode()">Mode transparence</button>
                 <audio controls id="birdmachine" class="hidden">
-                    <source src="./bird-machine-audio.mp3" type="audio/mp3">
+                    <source src="./ressources/rain/bird-machine-audio.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio> 
             </div>
@@ -80,7 +105,7 @@
                 let rngImg = Math.floor((Math.random() * 4));
                 let rngX = Math.floor((Math.random() * ($(window).width() - 91)));
                 let rngY = Math.floor((Math.random() * ($(window).height() - 91)));
-                $( "#rain" ).append(`<img src="./img/rain/${images[rngImg]}" style="top: ${rngY}px;left: ${rngX}px;" class="floating pop">`);
+                $( "#rain" ).append(`<img src="./ressources/rain/${images[rngImg]}" style="top: ${rngY}px;left: ${rngX}px;" class="floating pop">`);
             }
 
             function checkLine(indexesToCheck) {
