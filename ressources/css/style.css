@@ -5,8 +5,6 @@ html {
     background-color: #526870;
 }
 .page {
-    display: flex;
-    height: 100vh;
 }
 
 .side-panel {
@@ -29,9 +27,7 @@ html {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 5px;
-    width: 80%;
-    max-height: 90vh;
-    border: 1px solid blue;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
