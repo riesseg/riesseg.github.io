@@ -1,4 +1,6 @@
-import { setGrid, chargerOptions } from "./function.js";
+import { setGrid, resetGrid } from "./function.js";
+import { loadGrid  } from "./grille.js";
+
 var grille = new Array();
 var grille2 = new Array();
 var selectedValue = "defaultState";
@@ -14,7 +16,7 @@ export function hello() {
     var selectState = $("#selectState");
 
     // Charger les options
-    chargerOptions();
+    loadGrid();
 
     // Sélectionner la valeur par défaut
     selectState.val(selectedValue);
@@ -33,6 +35,7 @@ $('#newGrid').on('click',function (e) {
     //e.preventDefault(); //optional
     //some code
     setGrid("../grilles/secret_histoire.txt");
+    resetGrid();
 });
 
 
