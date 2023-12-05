@@ -49,3 +49,15 @@ export function setGrid(fileUrl) {
     console.error('Une erreur s\'est produite :', error);
   });
 }
+
+// Fonction pour charger les options dans le menu déroulant
+export function chargerOptions() {
+  var selectState = $("#selectState");
+  // Options possibles (vous pouvez les ajuster selon vos besoins)
+  var options = ["defaultState", "state1", "state2", "state3"];
+  console.log(options);
+  // Ajouter les options au menu déroulant
+  $.each(options, function (index, value) {
+    selectState.append($("<option>", { value: value, text: value }));
+  });
+}
