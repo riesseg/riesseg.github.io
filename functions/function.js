@@ -29,7 +29,7 @@ export async function getRandomSubset(array) {
   else 
   {
     //si la liste est trop courte, alors on va compléter avec la grille standard.
-    var standardGrid = await readFileAndReturnArray("../grilles/standard.txt");
+    var standardGrid = await readFileAndReturnArray("./grilles/standard.txt");
     resultArray = array.slice(0, array.length);
     standardGrid = standardGrid.slice().sort(() => Math.random() - 0.5);
     resultArray = resultArray.concat(standardGrid.slice(0, (25-array.length)));
@@ -38,7 +38,7 @@ export async function getRandomSubset(array) {
   resultArray = resultArray.slice().sort(() => Math.random() - 0.5);
 
   // Garantir que l'élément à l'index 12 est "bonus"
-  resultArray[12] = "Joker";
+  resultArray[12] = "";
 
   return resultArray;
 };

@@ -12,7 +12,7 @@ export function hello() {
 };
 
  $( document ).ready(function() {
-    setGrid("../grilles/secret_histoire.txt");
+    setGrid("grilles/secret_histoire.txt");
     // Récupérer l'élément select
     var selectState = $("#selectState");
 
@@ -61,7 +61,7 @@ $("#selectState").on('change', function () {
 });
 
 $('#newGrid').on('click',function (e) {
-    setGrid("../grilles/secret_histoire.txt");
+    setGrid("grilles/secret_histoire.txt");
     resetBingoAnim();
     resetGrid();
 });

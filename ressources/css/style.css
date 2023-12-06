@@ -45,7 +45,9 @@ body {
     justify-content: center;
     aspect-ratio: 1;
 }
-
+.joker {
+    background: url("/ressources/img/Thalia-Salut-03.png") no-repeat center #d1cfc8; 
+}
 .cell.selected {
     background-color: #669491;
 }

@@ -1,12 +1,13 @@
-const images = ["Lion-Coin.png", "tw_abo-T1.png", "tw_abo-T2.png", "tw_abo-T3.png" ]
-const rainFolder = "./ressources/rain/"
-var audio = document.getElementById("birdmachine"); 
+const images = ["Lion-Coin.png", "Tw_abo-T1.png", "Tw_abo-T2.png", "Tw_abo-T3.png" ]
+const rainFolder = "ressources/rain/"
+var audio = document.getElementById("mp3player"); 
 var interval;
 export var hasAnimationBeenTriggered;
 
 export function itsBingo() {
         if(!hasAnimationBeenTriggered) {
         $("#bingo").toggleClass("hidden");
+        audio.volume = 0.1;
         audio.play();
         makeItRain()
         hasAnimationBeenTriggered = true;
