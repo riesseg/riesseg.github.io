@@ -3,15 +3,15 @@
 
 html {
     background-color: #526870;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+
+}
+body {
+    padding: 0;
+    margin: 0;
 }
 .page {
-}
-
-.side-panel {
-    display: none;
-    text-align: center;
-    width: 51%;
-    padding: 20px 0;
 }
 
 .title {
@@ -38,7 +38,6 @@ html {
     border: 1px solid #ffffff;
     color: #000000;
     border-radius: 10px;
-    font-family: 'Roboto', sans-serif;
     text-align: center;
     font-size: 20px;
     display: flex;
@@ -67,20 +66,39 @@ html {
     z-index: 3000;
 }
 
-.bingo-title {
+#bingo {
     position: absolute;
-    top: 250px;
-    font-size: 150px;
     width: 100%;
+    padding: 2em 0em;
+    margin-top: 20%;
     text-align: center;
-    display: flex;
     justify-content: center;
     background-color: rgba(255,255,255,0.8);
     z-index: 2000;
-    font-family: bingo;
     animation: bingo-in 0.5s linear 0s 1 both;
 }
+#bingo h1 {
+    display: inline;
+    font-size: 10rem;
+    font-family: 'Roboto', sans-serif;
+}
+#bingo button {
+    display: block;
+    margin-left:auto;
+    margin-right: auto;
+}
 
+.button {
+    padding : 10px 20px 10px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover {
+    background: white;
+}
 .rotating {
     position: relative;
 }

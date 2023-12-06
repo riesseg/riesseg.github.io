@@ -17,15 +17,14 @@ body
   /* make it look decent enough */
   background: #232323;
   color: #cdcdcd;
-  font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
 #menuToggle
 {
   display: block;
   position: relative;
-  top: 5px;
-  left: 5px;
+  top: 20px;
+  left: 20px;
   
   z-index: 1;
   
@@ -160,4 +159,17 @@ body
 #menuToggle input:checked ~ ul
 {
   transform: none;
+}
+
+.credit {
+  margin-top: 3em;
+  font-size: 80%;
+  font-family:arial;
+  color: #afafaf;
+  border-top: 1px solid #afafaf;
+  padding-top: 1em;
+  font-style: italic;
+}
+.credit a, .credit a:hover {
+    color: #afa7a7;
 }

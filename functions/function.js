@@ -58,6 +58,5 @@ export function resetGrid(){
   {
     $("#c"+i).removeClass("selected");
     $("#c"+i).removeClass("bingo");
-    console.log("#id"+i+" : removed selected");
   }
 }

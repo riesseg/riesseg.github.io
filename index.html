@@ -36,11 +36,12 @@
               </nav>
             <div class="container">
                 <div id="bingo" class="hidden bingo-title">
-                    <img src="./ressources/rain/bubuchenewsub.gif">
-                    <span class="rotating">
-                        <span class="bingo-txt">BINGO</span>
-                    <button onclick="continueBingo()">Continuer</button>
-                </span><img src="./ressources/rain/bubuchenewsub.gif">
+                    <div class="content">
+                    <img src="./ressources/rain/Lion-Coin.gif">
+                    <h1>BINGO</h1>
+                    <img src="./ressources/rain/Lion-Coin.gif">
+                    <button class="button" id="continueBingo">Continuer</button>
+                </div>
             </div>
             <div id = "grid">
                 <div class="cell" id="c0"><span class="cell-text cell-0"></span></div>
@@ -71,70 +72,14 @@
             </div>
             </div>
             <audio controls id="birdmachine" class="hidden">
-                <source src="./ressources/rain/bird-machine-audio.mp3" type="audio/mp3">
+                <source src="./ressources/rain/BG-Remix10s.mp3" type="audio/mp3">
                 Your browser does not support the audio element.
             </audio> 
         </div>
         <div id="rain"></div>
         
         <script>
-            var interval;
             var displayInterval;
-            var hasAnimationBeenTriggered = false;
-            var audio = document.getElementById("birdmachine"); 
-
-            function isSelected(index) {
-                return $("#c"+ index).hasClass("selected")
-            }
-
-            function makeItRain() {
-                if(!hasAnimationBeenTriggered) {
-                    interval = self.setInterval(function(){addRandomImage()},50);
-                    $("#bingo").test("hidden");
-                    audio.play();
-                    hasAnimationBeenTriggered = true;
-                }
-            }
-
-            const images = ["buchehap112px.png", "mims2.png", "pipe112px.png", "wazotest2_112px.png" ]
-            function addRandomImage() {
-                let rngImg = Math.floor((Math.random() * 4));
-                let rngX = Math.floor((Math.random() * ($(window).width() - 91)));
-                let rngY = Math.floor((Math.random() * ($(window).height() - 91)));
-                $( "#rain" ).append(`<img src="./ressources/rain/${images[rngImg]}" style="top: ${rngY}px;left: ${rngX}px;" class="floating pop">`);
-            }
-
-            function checkLine(indexesToCheck) {
-                if(indexesToCheck.every(isSelected)) {
-                    indexesToCheck.forEach((item, index, arr) => $("#c"+ item).addClass('bingo'))
-                    makeItRain();
-                }
-            }
-
-            function continueBingo() {
-                clearInterval(interval);
-                $("#bingo").addClass("hidden");
-                audio.pause();
-            }
-
-            $(".cell").click(function() {
-                $(this).toggleClass('selected');
-                checkLine([0,1,2,3,4]);
-                checkLine([5,6,7,8,9]);
-                checkLine([10,11,12,13,14]);
-                checkLine([15,16,17,18,19]);
-                checkLine([20,21,22,23,24]);
-
-                checkLine([0,5,10,15,20]);
-                checkLine([1,6,11,16,21]);
-                checkLine([2,7,12,17,22]);
-                checkLine([3,8,13,18,23]);
-                checkLine([4,9,14,19,24]);
-
-                checkLine([0,6,12,18,24]);
-                checkLine([4,8,12,16,20]);
-            });
-
             var transparencyTrigger = false;
 
             function setTransparencyMode() {
