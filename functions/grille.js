@@ -1,12 +1,14 @@
+export var listGrids  = [
+  ["Secret d'histoire", "secret_histoire.txt"],
+  ["Ravioli", "ravioli.txt"]
+]
+
 // Fonction pour charger les options dans le menu déroulant
 export function loadGrid() {
-    var selectState = $("#selectState");
-    // Options possibles (vous pouvez les ajuster selon vos besoins)
-    var options = ["defaultState", "state1", "state2", "state3"];
-    console.log(options);
+    var selectState = $("#selectGrid");
     // Ajouter les options au menu déroulant
-    $.each(options, function (index, value) {
-      selectState.append($("<option>", { value: value, text: value }));
+    $.each(listGrids, function (index, value) {
+      selectState.append($("<option>", { value: value[1], text: value[0] }));
     });
 }
 

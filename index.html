@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
-        <link rel="stylesheet" type="text/css" href="./ressources/css/style.css" />
         <link rel="stylesheet" type="text/css" href="./ressources/css/menu.css" />
+        <link rel="stylesheet" type="text/css" href="./ressources/css/style.css" />
         <script src="https://kit.fontawesome.com/92c9b58fa8.js" crossorigin="anonymous"></script>
         <script type="module" src="./functions/main.js"></script>
 
@@ -19,16 +20,23 @@
                     <span></span>
                   
                     <ul id="menu">
+                    <li>
+                        <label for="selectGrid">Thème :</label>
+                        <select id="selectGrid">
+                            <!-- Options seront ajoutées dynamiquement par JavaScript -->
+                        </select>
+                    </li>
                     <a href="#" id="newGrid"><li>Nouveau bingo</li></a>
-                    <a href="#" onClick="setTransparencyMode()"><li>Mode transparent</li></a>
-
-                    <label for="selectState">Etat :</label>
-                    <select id="selectState">
-                        <!-- Options seront ajoutées dynamiquement par JavaScript -->
-                    </select>
+                    <li class="toggle">
+                        Mode transparent : 
+                        <div id="toggleTransparence">
+                            <input type="checkbox" id="switchTransparence" />
+                            <label id="labeltrsp" for="switchTransparence">Toggle</label>
+                        </div>
+                    </li>
                     <div class="credit">
                         menu by : <a href="https://erikterwan.com/" target="_blank">erikterwan</a><br />
-                        origin bingo by : Plogojowitz<br />
+                        origin bingo by : <a href="https://github.com/LeGalAlexis/" target="_blank">Plogojowitz</a><br />
                         new bingo by : Gollgotth    
                     </div>
                 </ul>
@@ -77,46 +85,5 @@
             </audio> 
         </div>
         <div id="rain"></div>
-        
-        <script>
-            var displayInterval;
-            var transparencyTrigger = false;
-
-            function setTransparencyMode() {
-                transparencyTrigger = !transparencyTrigger;
-                if(transparencyTrigger) {
-                    $("html").css('background-color', '#00FF00');
-                    startDisplayInterval();
-
-                    $(".container")
-                        .mouseenter(function(){
-                            $(".cell").test('animated-hidden');
-                            $(".cell").addClass('animated-visible');
-                            clearInterval(displayInterval);
-                        })
-                        .mouseleave(function() {
-                            startDisplayInterval();
-                        })
-                } else {
-                    $("html").css('background-color', '#526870');
-                    $(".cell").test('animated-hidden');
-                    $(".cell").addClass('animated-visible');
-                    clearInterval(displayInterval);
-                    $(".container").unbind("mouseenter");
-                    $(".container").unbind("mouseleave");
-                }
-            }
-
-            function startDisplayInterval() {
-                displayInterval = setInterval(
-                    function() {
-                        if ($('.container:hover').length === 0) {
-                            $(".cell").addClass('animated-hidden');
-                            $(".cell").removeClass('animated-visible');
-                        }
-                    }
-                , 1000)
-            }
-        </script>
     </body>
 </html>

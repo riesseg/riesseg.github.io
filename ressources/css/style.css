@@ -124,6 +124,60 @@ body {
     opacity: 0;
     transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
+/****************************/
+/* toggle */
+.toggle {
+  position:initial;
+  display: flex;
+  align-items: center;
+}
+
+#toggleTransparence {
+  margin-left: 5px;
+  background: none;
+}
+
+#toggleTransparence input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+#toggleTransparence label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 60px;
+    height: 30px;
+    background: grey;
+    display: block;
+    border-radius: 30px;
+    position: relative;
+  }
+  
+#toggleTransparence label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+  
+#toggleTransparence input:checked + label {
+    background: #bada55;
+  }
+  
+#toggleTransparence input:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+#toggleTransparence label:active:after {
+    width: 30px;
+  }
+/************************/
 
 @keyframes rotate {
     0% { transform: rotateY(0deg) scale(1.1, 1.1);}

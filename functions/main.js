@@ -1,29 +1,27 @@
 import { setGrid, resetGrid } from "./function.js";
-import { loadGrid  } from "./grille.js";
+import { loadGrid, listGrids  } from "./grille.js";
 import { itsBingo, continueBingo, resetBingoAnim } from "./rain.js";
 
 var grille = new Array();
 var grille2 = new Array();
-var selectedValue = "defaultState";
+var selectedGrid = listGrids[0][1];
 const fichierLoaded = 0;
+var displayInterval;
+var transparencyTrigger = false;
 
 export function hello() {
     console.log('hello!');
 };
 
  $( document ).ready(function() {
-    setGrid("grilles/secret_histoire.txt");
-    // Récupérer l'élément select
-    var selectState = $("#selectState");
+    var selectGrid = $("#selectGrid");
 
-    // Charger les options
+    setGrid("grilles/"+selectedGrid);
+    selectGrid.val(selectedGrid);
+
     loadGrid();
 
-    // Sélectionner la valeur par défaut
-    selectState.val(selectedValue);
-
-    // Écouter les changements de sélection
-
+    transparencyTrigger = false;
 });
 
 function isSelected(index) {
@@ -36,6 +34,45 @@ function checkLine(indexesToCheck) {
         itsBingo();
     }
 }
+
+
+
+function setTransparencyMode() {
+    transparencyTrigger = !transparencyTrigger;
+    if(transparencyTrigger) {
+        $("html").css('background-color', '#00FF00');
+        startDisplayInterval();
+
+        $(".container")
+            .mouseenter(function(){
+                $(".cell").toggleClass('animated-hidden');
+                $(".cell").toggleClass('animated-visible');
+                clearInterval(displayInterval);
+            })
+            .mouseleave(function() {
+                startDisplayInterval();
+            })
+    } else {
+        $("html").css('background-color', '#526870');
+        $(".cell").toggleClass('animated-hidden');
+        $(".cell").toggleClass('animated-visible');
+        clearInterval(displayInterval);
+        $(".container").unbind("mouseenter");
+        $(".container").unbind("mouseleave");
+    }
+}
+
+function startDisplayInterval() {
+    displayInterval = setInterval(
+        function() {
+            if ($('.container:hover').length === 0) {
+                $(".cell").addClass('animated-hidden');
+                $(".cell").removeClass('animated-visible');
+            }
+        }
+    , 1000)
+}
+
 $(".cell").on('click', function(){
     $(this).toggleClass('selected');
     checkLine([0,1,2,3,4]);
@@ -54,14 +91,12 @@ $(".cell").on('click', function(){
     checkLine([4,8,12,16,20]);
 });
 
-$("#selectState").on('change', function () {
-    console.log(selectedValue);
-    selectedValue = $("#selectState").val();
-    console.log(selectedValue);
+$("#selectGrid").on('change', function () {
+    selectedGrid = $("#selectGrid").val();
 });
 
 $('#newGrid').on('click',function (e) {
-    setGrid("grilles/secret_histoire.txt");
+    setGrid("grilles/"+selectedGrid);
     resetBingoAnim();
     resetGrid();
 });
@@ -69,5 +104,10 @@ $('#newGrid').on('click',function (e) {
 $('#continueBingo').on('click', function() {
     continueBingo();
 });
+
+$('#toggleTransparence').change(function() {
+    setTransparencyMode()
+});
+
 
   
