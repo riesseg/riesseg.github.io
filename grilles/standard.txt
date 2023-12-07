@@ -1,6 +1,6 @@
 Thalia arrive
 Le thé est prêt
-Il n'y a plus de thé
+Thibault est consterné
 Thibault répond au téléphone
 Un colis arrive
 Il se lève
@@ -12,3 +12,5 @@ Il parle de Nath
 Il se fait Raid
 Il raid !
 Train de la hype
+Fou rire
+Coup de Tsoin
