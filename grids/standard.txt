@@ -3,7 +3,6 @@ Le thé est prêt
 Thibault est consterné
 Thibault répond au téléphone
 Un colis arrive
-Il se lève
 Il va chercher un truc
 Il a besoin d'un exutoire
 Il perd ses mots
@@ -13,4 +12,4 @@ Il se fait Raid
 Il raid !
 Train de la hype
 Fou rire
-COup de Tsoin
+Coup de Tsoin
