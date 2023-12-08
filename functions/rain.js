@@ -7,7 +7,7 @@ export var hasAnimationBeenTriggered;
 export function itsBingo() {
         if(!hasAnimationBeenTriggered) {
         $("#bingo").toggleClass("hidden");
-        audio.volume = 0.1;
+        audio.volume = 0.5;
         audio.play();
         makeItRain()
         hasAnimationBeenTriggered = true;
