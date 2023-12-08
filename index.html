@@ -1,204 +1,89 @@
-<html style="height: 100%;">
+<!DOCTYPE html>
+<html>
     <head>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="./ressources/css/menu.css" />
+        <link rel="stylesheet" type="text/css" href="./ressources/css/style.css" />
         <script src="https://kit.fontawesome.com/92c9b58fa8.js" crossorigin="anonymous"></script>
+        <script type="module" src="./functions/main.js"></script>
+
     </head>
-    <body style="height: 100%;">
+    <body>
         <div class="page">
+            <nav role="navigation">
+                <div id="menuToggle">
+                  <input type="checkbox" />
+                  
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  
+                    <ul id="menu">
+                    <li>
+                        <label for="selectGrid">Thème :</label>
+                        <select id="selectGrid">
+                            <!-- Options seront ajoutées dynamiquement par JavaScript -->
+                        </select>
+                    </li>
+                    <a href="#" id="newGrid"><li>Nouveau bingo</li></a>
+                    <li class="toggle">
+                        Mode transparent : 
+                        <div id="toggleTransparence">
+                            <input type="checkbox" id="switchTransparence" />
+                            <label id="labeltrsp" for="switchTransparence">Toggle</label>
+                        </div>
+                    </li>
+                    <div class="credit">
+                        menu by : <a href="https://erikterwan.com/" target="_blank">erikterwan</a><br />
+                        origin bingo by : <a href="https://github.com/LeGalAlexis/" target="_blank">Plogojowitz</a><br />
+                        new bingo by : Gollgotth    
+                    </div>
+                </ul>
+                </div>
+              </nav>
             <div class="container">
-                <div id="bingo" class="hidden bingo-title"><img src="./bubuchenewsub.gif"><span class="rotating"><span class="bingo-txt">BINGO</span><button onclick="continueBingo()">Continuer</button></span><img src="./bubuchenewsub.gif"></div>
-                <div class="cell" id="c0"><span class="cell-text cell-0">test</span></div>
-                <div class="cell" id="c1"><span class="cell-text cell-1">test</span></div>
-                <div class="cell" id="c2"><span class="cell-text cell-2">test</span></div>
-                <div class="cell" id="c3"><span class="cell-text cell-3">test</span></div>
-                <div class="cell" id="c4"><span class="cell-text cell-4">test</span></div>
-                <div class="cell" id="c5"><span class="cell-text cell-5">test</span></div>
-                <div class="cell" id="c6"><span class="cell-text cell-6">test</span></div>
-                <div class="cell" id="c7"><span class="cell-text cell-7">test</span></div>
-                <div class="cell" id="c8"><span class="cell-text cell-8">test</span></div>
-                <div class="cell" id="c9"><span class="cell-text cell-9">test</span></div>
-                <div class="cell" id="c10"><span class="cell-text cell-10">test</span></div>
-                <div class="cell" id="c11"><span class="cell-text cell-11">test</span></div>
-                <div class="cell" id="c12"><span class="cell-text cell-12">test</span></div>
-                <div class="cell" id="c13"><span class="cell-text cell-13">test</span></div>
-                <div class="cell" id="c14"><span class="cell-text cell-14">test</span></div>
-                <div class="cell" id="c15"><span class="cell-text cell-15">test</span></div>
-                <div class="cell" id="c16"><span class="cell-text cell-16">test</span></div>
-                <div class="cell" id="c17"><span class="cell-text cell-17">test</span></div>
-                <div class="cell" id="c18"><span class="cell-text cell-18">test</span></div>
-                <div class="cell" id="c19"><span class="cell-text cell-19">test</span></div>
-                <div class="cell" id="c20"><span class="cell-text cell-20">test</span></div>
-                <div class="cell" id="c21"><span class="cell-text cell-21">test</span></div>
-                <div class="cell" id="c22"><span class="cell-text cell-22">test</span></div>
-                <div class="cell" id="c23"><span class="cell-text cell-23">test</span></div>
-                <div class="cell" id="c24"><span class="cell-text cell-24">test</span></div>
+                <div id="bingo" class="hidden bingo-title">
+                    <div class="content">
+                    <img src="./ressources/rain/Lion-Coin.gif">
+                    <h1>BINGO</h1>
+                    <img src="./ressources/rain/Lion-Coin.gif">
+                    <button class="button" id="continueBingo">Continuer</button>
+                </div>
             </div>
-            <div class="side-panel">
-                <h1 class="title">Bingo Buche !</h1>
-                <p><img src="./wazotest2_112px.png" alt="wazo" class="wazo" ></p>
-                <button onClick="window.location.reload();">Creer un nouveau bingo</button>
-                <button onClick="setTransparencyMode()">Mode transparence</button>
-                <audio controls id="birdmachine" class="hidden">
-                    <source src="./bird-machine-audio.mp3" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio> 
+            <div id = "grid">
+                <div class="cell" id="c0"><span class="cell-text cell-0"></span></div>
+                <div class="cell" id="c1"><span class="cell-text cell-1"></span></div>
+                <div class="cell" id="c2"><span class="cell-text cell-2"></span></div>
+                <div class="cell" id="c3"><span class="cell-text cell-3"></span></div>
+                <div class="cell" id="c4"><span class="cell-text cell-4"></span></div>
+                <div class="cell" id="c5"><span class="cell-text cell-5"></span></div>
+                <div class="cell" id="c6"><span class="cell-text cell-6"></span></div>
+                <div class="cell" id="c7"><span class="cell-text cell-7"></span></div>
+                <div class="cell" id="c8"><span class="cell-text cell-8"></span></div>
+                <div class="cell" id="c9"><span class="cell-text cell-9"></span></div>
+                <div class="cell" id="c10"><span class="cell-text cell-10"></span></div>
+                <div class="cell" id="c11"><span class="cell-text cell-11"></span></div>
+                <div class="cell joker" id="c12"><span class="cell-text cell-12"></span></div>
+                <div class="cell" id="c13"><span class="cell-text cell-13"></span></div>
+                <div class="cell" id="c14"><span class="cell-text cell-14"></span></div>
+                <div class="cell" id="c15"><span class="cell-text cell-15"></span></div>
+                <div class="cell" id="c16"><span class="cell-text cell-16"></span></div>
+                <div class="cell" id="c17"><span class="cell-text cell-17"></span></div>
+                <div class="cell" id="c18"><span class="cell-text cell-18"></span></div>
+                <div class="cell" id="c19"><span class="cell-text cell-19"></span></div>
+                <div class="cell" id="c20"><span class="cell-text cell-20"></span></div>
+                <div class="cell" id="c21"><span class="cell-text cell-21"></span></div>
+                <div class="cell" id="c22"><span class="cell-text cell-22"></span></div>
+                <div class="cell" id="c23"><span class="cell-text cell-23"></span></div>
+                <div class="cell" id="c24"><span class="cell-text cell-24"></span></div>
             </div>
+            </div>
+            <audio controls id="mp3player" class="hidden">
+                <source src="./ressources/rain/BG-Remix10s.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio> 
         </div>
         <div id="rain"></div>
-        
-        <script>
-            var interval;
-            var displayInterval;
-            var hasAnimationBeenTriggered = false;
-            var audio = document.getElementById("birdmachine"); 
-            const cells = ["ça ken SALE", 
-                "musique trop épique", 
-                "animal en voie de disparition",
-                "timelapse nuages",
-                "combat contre les éléments",
-                "slowmo inutile",
-                "\"La nature reprend ses droits\"",
-                "entre tradition & modernité/terre de contrastes etc",
-                "baston pour la dominance",
-                "parade nuptiale chelou",
-                "bébé animal mignon",
-                "plan drone",
-                "licence poétique approximative",
-                "CACA !",
-                "sound designer en roue libre",
-                "3D éclatée",
-                "sous titres inventent des applaudissements",
-                "l'eau, bien le plus précieux",
-                "écotourisme",
-                "le problème c'est nous",
-                "animal mignon se fait manger par un prédateur",
-                "métaphore filée claquée au sol",
-                "\"nature impitoyable\"",
-                "gros plan carcasse"];
-
-            function shuffle(array) {
-                let currentIndex = array.length,  randomIndex;
-
-                // Tant qu'il reste des éléments à mélanger...
-                while (currentIndex != 0) {
-
-                    // Prendre un élément au hasard...
-                    randomIndex = Math.floor(Math.random() * currentIndex);
-                    currentIndex--;
-
-                    // Et l'échanger avec l'element actuel.
-                    [array[currentIndex], array[randomIndex]] = [
-                    array[randomIndex], array[currentIndex]];
-                }
-
-                return array;
-            }
-
-            function setCell(item, index, arr) {
-                $(".cell-"+ index).text(item)
-            }
-
-            function setGrid() {
-                let gridCells = [...cells];
-                shuffle(gridCells);
-                gridCells.splice(12, 0, "FREE SPACE");
-                gridCells.forEach(setCell);
-            }
-
-            function isSelected(index) {
-                return $("#c"+ index).hasClass("selected")
-            }
-
-            function makeItRain() {
-                if(!hasAnimationBeenTriggered) {
-                    interval = self.setInterval(function(){addRandomImage()},50);
-                    $("#bingo").removeClass("hidden");
-                    audio.play();
-                    hasAnimationBeenTriggered = true;
-                }
-            }
-
-            const images = ["buchehap112px.png", "mims2.png", "pipe112px.png", "wazotest2_112px.png" ]
-            function addRandomImage() {
-                let rngImg = Math.floor((Math.random() * 4));
-                let rngX = Math.floor((Math.random() * ($(window).width() - 91)));
-                let rngY = Math.floor((Math.random() * ($(window).height() - 91)));
-                $( "#rain" ).append(`<img src="./${images[rngImg]}" style="top: ${rngY}px;left: ${rngX}px;" class="floating pop">`);
-            }
-
-            function checkLine(indexesToCheck) {
-                if(indexesToCheck.every(isSelected)) {
-                    indexesToCheck.forEach((item, index, arr) => $("#c"+ item).addClass('bingo'))
-                    makeItRain();
-                }
-            }
-
-            function continueBingo() {
-                clearInterval(interval);
-                $("#bingo").addClass("hidden");
-                audio.pause();
-            }
-
-            $( document ).ready(function() {
-                setGrid();
-            });
-
-            $(".cell").click(function() {
-                $(this).toggleClass('selected');
-                checkLine([0,1,2,3,4]);
-                checkLine([5,6,7,8,9]);
-                checkLine([10,11,12,13,14]);
-                checkLine([15,16,17,18,19]);
-                checkLine([20,21,22,23,24]);
-
-                checkLine([0,5,10,15,20]);
-                checkLine([1,6,11,16,21]);
-                checkLine([2,7,12,17,22]);
-                checkLine([3,8,13,18,23]);
-                checkLine([4,9,14,19,24]);
-
-                checkLine([0,6,12,18,24]);
-                checkLine([4,8,12,16,20]);
-            });
-
-            var transparencyTrigger = false;
-
-            function setTransparencyMode() {
-                transparencyTrigger = !transparencyTrigger;
-                if(transparencyTrigger) {
-                    $("html").css('background-color', '#00FF00');
-                    startDisplayInterval();
-
-                    $(".container")
-                        .mouseenter(function(){
-                            $(".cell").removeClass('animated-hidden');
-                            $(".cell").addClass('animated-visible');
-                            clearInterval(displayInterval);
-                        })
-                        .mouseleave(function() {
-                            startDisplayInterval();
-                        })
-                } else {
-                    $("html").css('background-color', '#526870');
-                    $(".cell").removeClass('animated-hidden');
-                    $(".cell").addClass('animated-visible');
-                    clearInterval(displayInterval);
-                    $(".container").unbind("mouseenter");
-                    $(".container").unbind("mouseleave");
-                }
-            }
-
-            function startDisplayInterval() {
-                displayInterval = setInterval(
-                    function() {
-                        if ($('.container:hover').length === 0) {
-                            $(".cell").addClass('animated-hidden');
-                            $(".cell").removeClass('animated-visible');
-                        }
-                    }
-                , 1000)
-            }
-        </script>
     </body>
 </html>
