@@ -1,5 +1,5 @@
 import { setGrid, resetGrid } from "./function.js";
-import { loadGrid, listGrids, isBingo  } from "./grille.js";
+import { loadGrid, listGrids, isBingo  } from "./grid.js";
 import { itsBingo, continueBingo, resetBingoAnim } from "./rain.js";
 
 var selectedGrid = listGrids[0][1];
@@ -13,7 +13,7 @@ export function hello() {
  $( document ).ready(function() {
     var selectGrid = $("#selectGrid");
 
-    setGrid("grilles/"+selectedGrid);
+    setGrid("grids/"+selectedGrid);
     selectGrid.val(selectedGrid);
 
     loadGrid();
@@ -69,7 +69,7 @@ $("#selectGrid").on('change', function () {
 });
 
 $('#newGrid').on('click',function (e) {
-    setGrid("grilles/"+selectedGrid);
+    setGrid("grids/"+selectedGrid);
     resetBingoAnim();
     resetGrid();
 });
