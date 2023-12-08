@@ -124,8 +124,7 @@ body {
     opacity: 0;
     transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
-/****************************/
-/* toggle */
+/****** Toggle transparence ******/
 .toggle {
   position:initial;
   display: flex;
@@ -177,8 +176,15 @@ body {
 #toggleTransparence label:active:after {
     width: 30px;
   }
-/************************/
 
+/****** Choix thèmes ******/
+#selectGrid {
+  padding: 3px 10px;
+  font-size: 16px;
+  width: 70%;
+}
+
+/****** Animations ******/
 @keyframes rotate {
     0% { transform: rotateY(0deg) scale(1.1, 1.1);}
     70% { transform: rotateY(400deg) scale(1.2, 1.2);}
