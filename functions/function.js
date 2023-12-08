@@ -29,7 +29,7 @@ export async function getRandomSubset(array) {
   else 
   {
     //si la liste est trop courte, alors on va compléter avec la grille standard.
-    var standardGrid = await readFileAndReturnArray("./grilles/standard.txt");
+    var standardGrid = await readFileAndReturnArray("./grid/standard.txt");
     resultArray = array.slice(0, array.length);
     standardGrid = standardGrid.slice().sort(() => Math.random() - 0.5);
     resultArray = resultArray.concat(standardGrid.slice(0, (25-array.length)));
