@@ -36,10 +36,10 @@ Un interrupteur présent dans le menu permet de réafficher la grille.
 
 # **TODO**
 
-* [ ] fichier de configuration pour simplifier les personnalisations :
+* [X] fichier de configuration pour simplifier les personnalisations :
   * [X] rain
   * [X] grid
-  * [ ] images
+  * [X] images (annulé)
   * [X] musique
 * [X] musique aléatoire lors d'un bingo
 * [ ] choix de l'image sur la tuile Joker en aléatoire

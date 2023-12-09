@@ -1,5 +1,3 @@
-import { gridsFolder } from "./path.js";
-
 export function hello(){
     console.log('hello');
 };
@@ -15,50 +13,46 @@ export async function readFileAndReturnArray(fileUrl) {
   });
 };
 
-export async function getRandomSubset(array) {
-  var toShort = false;
-  var resultArray = new Array();
-  // S'assurer que le tableau d'origine a au moins 25 éléments
-  if (array.length <= 25) {
-    toShort = true;
-  }
-
-  if(toShort = false)
-  {
-      // Extraire les 25 premiers éléments du tableau mélangé
-      resultArray = array.slice(0, 25);
-  }
-  else 
-  {
-    //si la liste est trop courte, alors on va compléter avec la grille standard.
-    var standardGrid = await readFileAndReturnArray(gridsFolder+"standard.txt");
-    resultArray = array.slice(0, array.length);
-    standardGrid = standardGrid.slice().sort(() => Math.random() - 0.5);
-    resultArray = resultArray.concat(standardGrid.slice(0, (25-array.length)));
-  }
-  // On mélange le tableau
-  resultArray = resultArray.slice().sort(() => Math.random() - 0.5);
-
-  // Garantir que l'élément à l'index 12 est "bonus"
-  resultArray[12] = "Joker";
-
-  return resultArray;
-};
-
-function setCell(item, index, arr) {
-  $(".cell-"+ index).text(item)
-};
-
-export async function setGrid(fileUrl) {
-  var grille = await readFileAndReturnArray(fileUrl);
-  grille = await getRandomSubset(grille);
-  grille.forEach(setCell);
-}
-
 export function resetGrid(){
   for(var i = 0; i<25; i++)
   {
     $("#c"+i).removeClass("selected");
     $("#c"+i).removeClass("bingo");
   }
+}
+
+export function setTransparencyMode() {
+  transparencyTrigger = !transparencyTrigger;
+  if(transparencyTrigger) {
+      $("html").css('background-color', '#00FF00');
+      startDisplayInterval();
+
+      $(".container")
+          .mouseenter(function(){
+              $(".tuile").toggleClass('animated-hidden');
+              $(".tuile").toggleClass('animated-visible');
+              clearInterval(displayInterval);
+          })
+          .mouseleave(function() {
+              startDisplayInterval();
+          })
+  } else {
+      $("html").css('background-color', '#526870');
+      $(".tuile").toggleClass('animated-hidden');
+      $(".tuile").toggleClass('animated-visible');
+      clearInterval(displayInterval);
+      $(".container").unbind("mouseenter");
+      $(".container").unbind("mouseleave");
+  }
+}
+
+function startDisplayInterval() {
+  displayInterval = setInterval(
+      function() {
+          if ($('.container:hover').length === 0) {
+              $(".tuile").addClass('animated-hidden');
+              $(".tuile").removeClass('animated-visible');
+          }
+      }
+  , 1000)
 }

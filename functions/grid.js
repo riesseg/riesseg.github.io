@@ -27,17 +27,77 @@ async function initGrids()
   listGrids.push(["Standard", "standard.txt"]);
   var gridsConfig = await readFileAndReturnArray(gridsFolder+"config_grids.txt");
   $.each(gridsConfig, function (index, value) {
-    if (!value.startsWith("#"))
+    if (value.startsWith("grid-"))
     {
-      listGrids.push(value.split(';'));
+      listGrids.push(value.substring(5, value.length).split(';'));
     }
   });
   return listGrids;
 }
+async function initJokers()
+{
+  var listJokers = [];
+  var gridsConfig = await readFileAndReturnArray(gridsFolder+"config_grids.txt");
+  $.each(gridsConfig, function (index, value) {
+    if (value.startsWith("joker-"))
+    {
+      listJokers.push(value.substring(6, value.length));
+    }
+  });
+  return listJokers;
+}
 
+export async function getRandomJoker(){
+  var listJokers = await initJokers();
+  if(listJokers.length == 0)
+  {
+    return null;
+  }
+  listJokers.sort(() => Math.random() - 0.5);
+  return listJokers[0];
+}
+export async function setGrid(fileUrl) {
+  var grille = await readFileAndReturnArray(fileUrl);
+  grille = await getRandomSubset(grille);
+  grille.forEach(setTuile);
+}
+
+function setTuile(item, index, arr) {
+  $(".tuile-"+ index).text(item)
+};
+
+async function getRandomSubset(array) {
+  var toShort = false;
+  var resultArray = new Array();
+  // S'assurer que le tableau d'origine a au moins 25 éléments
+  if (array.length <= 25) {
+    toShort = true;
+  }
+
+  if(toShort = false)
+  {
+      // Extraire les 25 premiers éléments du tableau mélangé
+      resultArray = array.slice(0, 25);
+  }
+  else 
+  {
+    //si la liste est trop courte, alors on va compléter avec la grille standard.
+    var standardGrid = await readFileAndReturnArray(gridsFolder+"standard.txt");
+    resultArray = array.slice(0, array.length);
+    standardGrid = standardGrid.slice().sort(() => Math.random() - 0.5);
+    resultArray = resultArray.concat(standardGrid.slice(0, (25-array.length)));
+  }
+  // On mélange le tableau
+  resultArray = resultArray.slice().sort(() => Math.random() - 0.5);
+
+  // Garantir que l'élément à l'index 12 est "bonus"
+  resultArray[12] = "Joker";
+
+  return resultArray;
+};
 
 // Fonction pour charger les options dans le menu déroulant
-export async function loadGrid() {
+export async function loadGridsChoice() {
   var listGrids = await initGrids();
 
   var selectState = $("#selectGrid");

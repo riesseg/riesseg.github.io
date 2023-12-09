@@ -1,7 +1,6 @@
-import { rainFolder } from "./path.js";
+import { rainFolder, rainMp3Folder, rainImgFolder } from "./path.js";
 import { readFileAndReturnArray} from "./function.js";
 
-const images = ["Lion-Coin.png", "Tw_abo-T1.png", "Tw_abo-T2.png", "Tw_abo-T3.png" ]
 var audio = document.getElementById("mp3Player"); 
 var audioMp3 = $("#mp3Song"); 
 
@@ -44,7 +43,7 @@ export async function itsBingo() {
         if(!hasAnimationBeenTriggered) {
         $("#bingo").toggleClass("hidden");
         var songMp3 = await randomMp3();
-        audioMp3.attr("src", rainFolder+songMp3);
+        audioMp3.attr("src", rainMp3Folder+songMp3);
         audio.load();
         audio.volume = 0.9;
         audio.play();
@@ -62,7 +61,7 @@ function addRandomImage(listRain) {
     let rngImg = Math.floor((Math.random() * listRain.length));
     let rngX = Math.floor((Math.random() * ($(window).width() - 91)));
     let rngY = Math.floor((Math.random() * ($(window).height() - 91)));
-    $( "#rain" ).append(`<img src="${rainFolder}${listRain[rngImg]}" style="top: ${rngY}px;left: ${rngX}px;" class="floating pop">`);
+    $( "#rain" ).append(`<img src="${rainImgFolder}${listRain[rngImg]}" style="top: ${rngY}px;left: ${rngX}px;" class="floating pop">`);
 }
 
 export function continueBingo() {

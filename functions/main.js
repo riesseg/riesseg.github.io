@@ -1,7 +1,7 @@
-import { setGrid, resetGrid } from "./function.js";
-import { loadGrid, isBingo  } from "./grid.js";
-import { itsBingo, continueBingo, resetBingoAnim, initRain, randomMp3 } from "./rain.js";
-import { gridsFolder, rainFolder } from "./path.js";
+import { resetGrid, setTransparencyMode } from "./function.js";
+import { setGrid, loadGridsChoice, isBingo, getRandomJoker  } from "./grid.js";
+import { itsBingo, continueBingo, resetBingoAnim} from "./rain.js";
+import { gridsFolder, gridsImgJokerFolder } from "./path.js";
 
 var selectedGrid = "standard.txt";
 var displayInterval;
@@ -11,53 +11,20 @@ export function hello() {
     console.log('hello!');
 };
 
-$( document ).ready(function() {
+$(document).ready(async function() {
     var selectGrid = $("#selectGrid");
+    var imgJoker  =await  getRandomJoker();
 
     setGrid(gridsFolder+selectedGrid);
     selectGrid.val(selectedGrid);
 
-    loadGrid();
+    loadGridsChoice();
 
     transparencyTrigger = false;
+    console.log(gridsImgJokerFolder+imgJoker)
+    $(".joker").css("background-image","url('"+gridsImgJokerFolder+imgJoker+"')");
     
 });
-
-function setTransparencyMode() {
-    transparencyTrigger = !transparencyTrigger;
-    if(transparencyTrigger) {
-        $("html").css('background-color', '#00FF00');
-        startDisplayInterval();
-
-        $(".container")
-            .mouseenter(function(){
-                $(".tuile").toggleClass('animated-hidden');
-                $(".tuile").toggleClass('animated-visible');
-                clearInterval(displayInterval);
-            })
-            .mouseleave(function() {
-                startDisplayInterval();
-            })
-    } else {
-        $("html").css('background-color', '#526870');
-        $(".tuile").toggleClass('animated-hidden');
-        $(".tuile").toggleClass('animated-visible');
-        clearInterval(displayInterval);
-        $(".container").unbind("mouseenter");
-        $(".container").unbind("mouseleave");
-    }
-}
-
-function startDisplayInterval() {
-    displayInterval = setInterval(
-        function() {
-            if ($('.container:hover').length === 0) {
-                $(".tuile").addClass('animated-hidden');
-                $(".tuile").removeClass('animated-visible');
-            }
-        }
-    , 1000)
-}
 
 $(".tuile").on('click', function(){
     $(this).toggleClass('selected');
