@@ -146,8 +146,12 @@ body {
 .button:hover {
     background: var(--highlight-02);
 }
+/* comment la classe si vous ne voulez pas avoir de rotation sur les images de la bannière bingo*/
 .rotating {
+    /*
     position: relative;
+    animation: rotate 2s linear infinite;
+    */
 }
 
 .hidden {
@@ -242,9 +246,8 @@ body {
 
 /****** Animations ******/
 @keyframes rotate {
-    0% { transform: rotateY(0deg) scale(1.1, 1.1);}
-    70% { transform: rotateY(400deg) scale(1.2, 1.2);}
-    100% {transform: rotateY(360deg) scale(1.1, 1.1);}
+    0% { transform: rotateY(0deg);}
+    100% {transform: rotateY(360deg);}
 }
 
 @keyframes scale-in {
