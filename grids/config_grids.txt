@@ -1,8 +1,10 @@
-#if ligne start with #, it's a commentary. 
-#this file is to associate theme's VisualName and fileName
-#must be seperated whit a ";"
-#standard.txt MUST existe and don't need config. It start bingo and to complete other Themes if they don't have 24 lines.
-#standart.txt MUST have 24 lines !!!
+# Si une ligne commence par un #, elle n'est pas prise en compte. C'est un commentaire.
+# Ce fichier permet d'associer les noms des grilles avec le nom afficher dans la liste déroulante.
+# Il faut une ligne par type de grille
+# La grille standard.txt est OBLIGATOIRE
+# Elle ne fait pas partie de la configuration
+# Elle initie le Bingo quand on arrive dessus, et permet de compléter les autres thèmes si ils n'ont pas 24 lignes.
+# standart.txt DOIT contenir au moins 24 lignes !!
 #
 #
 Secret d'histoire;secret_histoire.txt
