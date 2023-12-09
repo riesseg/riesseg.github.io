@@ -1,3 +1,6 @@
+import { readFileAndReturnArray} from "./function.js";
+import { gridsFolder } from "./path.js";
+
 var bingoLines = [
   [0,1,2,3,4],
   [5,6,7,8,9],
@@ -14,11 +17,12 @@ var bingoLines = [
   [0,6,12,18,24],
   [4,8,12,16,20]
 ];
+export async function test()
+{
+  var gridsConfig = await readFileAndReturnArray(gridsFolder+"config_grid.txt");
+  console.log(gridsConfig);
+}
 
-export var listGrids  = [
-  ["Secret d'histoire", "secret_histoire.txt"],
-  ["Ravioli", "ravioli.txt"]
-]
 
 // Fonction pour charger les options dans le menu déroulant
 export function loadGrid() {

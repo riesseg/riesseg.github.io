@@ -1,0 +1,8 @@
+#if ligne start with #, it's a commentary. 
+#this file is to associate theme's VisualName and fileName
+#must be seperated whit a ";"
+#standard.txt MUST existe and don't need config. it can't be used. Is only to complete other Themes.
+#
+#
+Secret d'histoire;secret_histoire.txt
+Ravioli;ravioli.txt

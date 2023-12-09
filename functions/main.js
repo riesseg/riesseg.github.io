@@ -1,8 +1,8 @@
 import { setGrid, resetGrid } from "./function.js";
-import { loadGrid, listGrids, isBingo  } from "./grid.js";
+import { loadGrid, isBingo, test  } from "./grid.js";
 import { itsBingo, continueBingo, resetBingoAnim } from "./rain.js";
 
-var selectedGrid = listGrids[0][1];
+var selectedGrid = "standard.txt";
 var displayInterval;
 var transparencyTrigger = false;
 
@@ -11,6 +11,7 @@ export function hello() {
 };
 
  $( document ).ready(function() {
+    test();
     var selectGrid = $("#selectGrid");
 
     setGrid("grids/"+selectedGrid);

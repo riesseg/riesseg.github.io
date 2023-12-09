@@ -1,5 +1,5 @@
+import { rainFolder } from "./path.js";
 const images = ["Lion-Coin.png", "Tw_abo-T1.png", "Tw_abo-T2.png", "Tw_abo-T3.png" ]
-const rainFolder = "ressources/rain/"
 var audio = document.getElementById("mp3player"); 
 var interval;
 export var hasAnimationBeenTriggered;
