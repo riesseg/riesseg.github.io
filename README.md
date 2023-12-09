@@ -43,4 +43,4 @@ Un interrupteur présent dans le menu permet de réafficher la grille.
   * [ ] musique
 * [ ] musique aléatoire lors d'un bingo
 * [ ] choix de l'image sur la tuile Joker en aléatoire
-* [ ] CSS avec variables pour simplifier la personnalisation
+* [X] CSS avec variables pour simplifier la personnalisation

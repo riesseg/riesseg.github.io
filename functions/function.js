@@ -40,7 +40,7 @@ export async function getRandomSubset(array) {
   resultArray = resultArray.slice().sort(() => Math.random() - 0.5);
 
   // Garantir que l'élément à l'index 12 est "bonus"
-  resultArray[12] = "";
+  resultArray[12] = "Joker";
 
   return resultArray;
 };

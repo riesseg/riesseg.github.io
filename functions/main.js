@@ -1,6 +1,6 @@
 import { setGrid, resetGrid } from "./function.js";
 import { loadGrid, isBingo  } from "./grid.js";
-import { itsBingo, continueBingo, resetBingoAnim } from "./rain.js";
+import { itsBingo, continueBingo, resetBingoAnim, initRain } from "./rain.js";
 import { gridsFolder } from "./path.js";
 
 var selectedGrid = "standard.txt";
@@ -20,6 +20,8 @@ export function hello() {
     loadGrid();
 
     transparencyTrigger = false;
+    console.log(initRain());
+    $("#mp3song").attr("src", "popoo.mp3");
 });
 
 function setTransparencyMode() {
