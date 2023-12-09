@@ -17,20 +17,34 @@ var bingoLines = [
   [0,6,12,18,24],
   [4,8,12,16,20]
 ];
-export async function test()
+
+//lit le fichier config_grids présent dans le dossier grids. 
+//ignore les lignes qui commencent par #
+//converti les lignes en tableau utilisé par la suite. 
+async function initGrids()
 {
-  var gridsConfig = await readFileAndReturnArray(gridsFolder+"config_grid.txt");
-  console.log(gridsConfig);
+  var listGrids = [];
+  listGrids.push(["Standard", "standard.txt"]);
+  var gridsConfig = await readFileAndReturnArray(gridsFolder+"config_grids.txt");
+  $.each(gridsConfig, function (index, value) {
+    if (!value.startsWith("#"))
+    {
+      listGrids.push(value.split(';'));
+    }
+  });
+  return listGrids;
 }
 
 
 // Fonction pour charger les options dans le menu déroulant
-export function loadGrid() {
-    var selectState = $("#selectGrid");
-    // Ajouter les options au menu déroulant
-    $.each(listGrids, function (index, value) {
-      selectState.append($("<option>", { value: value[1], text: value[0] }));
-    });
+export async function loadGrid() {
+  var listGrids = await initGrids();
+
+  var selectState = $("#selectGrid");
+  // Ajouter les options au menu déroulant
+  $.each(listGrids, function (index, value) {
+    selectState.append($("<option>", { value: value[1], text: value[0] }));
+  });
 }
 
 export function isBingo() {
