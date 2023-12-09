@@ -30,8 +30,8 @@ function setTransparencyMode() {
 
         $(".container")
             .mouseenter(function(){
-                $(".cell").toggleClass('animated-hidden');
-                $(".cell").toggleClass('animated-visible');
+                $(".tuile").toggleClass('animated-hidden');
+                $(".tuile").toggleClass('animated-visible');
                 clearInterval(displayInterval);
             })
             .mouseleave(function() {
@@ -39,8 +39,8 @@ function setTransparencyMode() {
             })
     } else {
         $("html").css('background-color', '#526870');
-        $(".cell").toggleClass('animated-hidden');
-        $(".cell").toggleClass('animated-visible');
+        $(".tuile").toggleClass('animated-hidden');
+        $(".tuile").toggleClass('animated-visible');
         clearInterval(displayInterval);
         $(".container").unbind("mouseenter");
         $(".container").unbind("mouseleave");
@@ -51,14 +51,14 @@ function startDisplayInterval() {
     displayInterval = setInterval(
         function() {
             if ($('.container:hover').length === 0) {
-                $(".cell").addClass('animated-hidden');
-                $(".cell").removeClass('animated-visible');
+                $(".tuile").addClass('animated-hidden');
+                $(".tuile").removeClass('animated-visible');
             }
         }
     , 1000)
 }
 
-$(".cell").on('click', function(){
+$(".tuile").on('click', function(){
     $(this).toggleClass('selected');
     if (isBingo()){
         itsBingo();

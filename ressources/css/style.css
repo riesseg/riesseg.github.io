@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-
+:root {
+    --main-bg-color: #5B5E77;
+    --tuile-bg-color: #d1cfc8;
+    --tuile-sel-color: #C7CDFC;
+    --tuile-bingo-color: #7D8AFF;
+    --tuile-text-color: #000000;
+    --tuile-border-color: #ffffff;
+    --tuile-bingo-border-color: #ffffff;
+    --highlight-01: #C57DFF;
+    --highlight-02: #7DDCFF;
+    --bingo-popup-bg-color: rgba(255,255,255,0.8);
+    --menu-text-color: #000000;
+    --menu-hamburger-color: #cdcdcd;
+    --menu-cross-color: #232323;
+    --menu-bg-color: #ededed;
+  }
 
 html {
-    background-color: #526870;
+    background-color: var(--main-bg-color);
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
 
@@ -13,14 +28,11 @@ body {
 }
 
 .title {
-    color: #669491;
+    color: var(--highlight-01);
     text-shadow: -10px 0 20px black, 0 10px 20px black, 10px 0 20px black, 0 -10px 20px black;
 }
 
-.wazo {
-    width: 200px;
-}
-
+/****** Grille du bingo ******/
 #grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -31,41 +43,42 @@ body {
     padding: 5px;
 }
 
-.cell {
-    background-color: #d1cfc8;
-    border: 1px solid #ffffff;
-    color: #000000;
+.tuile {
+    background-color: var(--tuile-bg-color);
+    border: 2px solid var(--tuile-border-color);
+    color: var(--tuile-text-color);
     border-radius: 10px;
     text-align: center;
     font-size: 20px;
+    padding: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
     aspect-ratio: 1;
 }
-.joker {
-    background: url("../img/Thalia-Salut-03.png") no-repeat center #d1cfc8; 
+.tuile.joker {
+    background: url("../img/Thalia-Salut-03.png") no-repeat center var(--tuile-bg-color); 
 }
-.cell.selected {
-    background-color: #669491;
+.tuile.selected {
+    background-color: var(--tuile-sel-color);
 }
 
-.bingo {
-    background-color: #a7c28f !important;
-    border-color: white !important;
+.tuile.bingo {
+    background-color: var(--tuile-bingo-color) !important;
+    border-color: var(--tuile-bingo-border-color) !important;
     animation: rotate 1s ease 0s 2 alternate;
 }
 
+/****** confetis ******/
 .pop {
     animation: scale-in 1s linear 0s 1 both;
 }
-
 .floating {
     position: absolute;
     width: 75px;
     z-index: 3000;
 }
-
+/****** popup BINGO ******/
 #bingo {
     position: absolute;
     width: 100%;
@@ -73,7 +86,7 @@ body {
     margin-top: 20%;
     text-align: center;
     justify-content: center;
-    background-color: rgba(255,255,255,0.8);
+    background-color: var(--bingo-popup-bg-color);
     z-index: 2000;
     animation: bingo-in 0.5s linear 0s 1 both;
 }
@@ -87,7 +100,9 @@ body {
     margin-left:auto;
     margin-right: auto;
 }
-
+.bingo-txt {
+    display: flex;
+}
 .button {
     padding : 10px 20px 10px 20px;
     font-size: 16px;
@@ -101,10 +116,6 @@ body {
 }
 .rotating {
     position: relative;
-}
-
-.bingo-txt {
-    display: flex;
 }
 
 .hidden {
@@ -122,6 +133,8 @@ body {
     opacity: 0;
     transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
+/******************/
+/****** MENU ******/
 /****** Toggle transparence ******/
 .toggle {
   position:initial;
@@ -174,6 +187,19 @@ body {
 #toggleTransparence label:active:after {
     width: 30px;
   }
+
+.credit {
+  margin-top: 3em;
+  font-size: 80%;
+  color: #afafaf;
+  border-top: 1px solid #afafaf;
+  padding-top: 1em;
+  font-style: italic;
+}
+.credit a, .credit a:hover {
+    color: #afa7a7;
+}
+
 
 /****** Choix thèmes ******/
 #selectGrid {
