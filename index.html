@@ -9,16 +9,17 @@
         <script type="module" src="./functions/main.js"></script>
 
     </head>
-    <body>
+    <body class="bg-normal">
         <div class="page">
             <nav role="navigation">
                 <div id="menuToggle">
-                  <input type="checkbox" />
-                  
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  
+                  <input type="checkbox" id="menuToggleInput"/>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>    
+                    </div>
+                    
                     <ul id="menu">
                     <li>
                         <label for="selectGrid">Thème :</label>
@@ -27,11 +28,16 @@
                         </select>
                     </li>
                     <a href="#" id="newGrid"><li>Nouveau bingo</li></a>
-                    <li class="toggle">
+                    <li class="relative">
                         Mode transparent : 
                         <div id="toggleTransparence">
                             <input type="checkbox" id="switchTransparence" />
                             <label id="labeltrsp" for="switchTransparence">Toggle</label>
+                        </div>
+                    </li>
+                    <li class="relative">Volume bingo :
+                        <div class="slidecontainer">
+                            <input id="inputSound" type="range" min="0" max="100" value="80" step="25">
                         </div>
                     </li>
                     <div class="credit">
@@ -43,44 +49,44 @@
                 </div>
               </nav>
             <div class="container">
-                <div id="bingo" class="hidden bingo-title">
+                <div id="bingo" class="hidden">
                     <div class="content">
-                    <img src="./ressources/rain/Lion-Coin.gif">
+                    <img class="rotating" src="/ressources/img/Lion-Coin.gif">
                     <h1>BINGO</h1>
-                    <img src="./ressources/rain/Lion-Coin.gif">
+                    <img class="rotating" src="/ressources/img/Lion-Coin.gif">
                     <button class="button" id="continueBingo">Continuer</button>
                 </div>
             </div>
             <div id = "grid">
-                <div class="cell" id="c0"><span class="cell-text cell-0"></span></div>
-                <div class="cell" id="c1"><span class="cell-text cell-1"></span></div>
-                <div class="cell" id="c2"><span class="cell-text cell-2"></span></div>
-                <div class="cell" id="c3"><span class="cell-text cell-3"></span></div>
-                <div class="cell" id="c4"><span class="cell-text cell-4"></span></div>
-                <div class="cell" id="c5"><span class="cell-text cell-5"></span></div>
-                <div class="cell" id="c6"><span class="cell-text cell-6"></span></div>
-                <div class="cell" id="c7"><span class="cell-text cell-7"></span></div>
-                <div class="cell" id="c8"><span class="cell-text cell-8"></span></div>
-                <div class="cell" id="c9"><span class="cell-text cell-9"></span></div>
-                <div class="cell" id="c10"><span class="cell-text cell-10"></span></div>
-                <div class="cell" id="c11"><span class="cell-text cell-11"></span></div>
-                <div class="cell joker" id="c12"><span class="cell-text cell-12"></span></div>
-                <div class="cell" id="c13"><span class="cell-text cell-13"></span></div>
-                <div class="cell" id="c14"><span class="cell-text cell-14"></span></div>
-                <div class="cell" id="c15"><span class="cell-text cell-15"></span></div>
-                <div class="cell" id="c16"><span class="cell-text cell-16"></span></div>
-                <div class="cell" id="c17"><span class="cell-text cell-17"></span></div>
-                <div class="cell" id="c18"><span class="cell-text cell-18"></span></div>
-                <div class="cell" id="c19"><span class="cell-text cell-19"></span></div>
-                <div class="cell" id="c20"><span class="cell-text cell-20"></span></div>
-                <div class="cell" id="c21"><span class="cell-text cell-21"></span></div>
-                <div class="cell" id="c22"><span class="cell-text cell-22"></span></div>
-                <div class="cell" id="c23"><span class="cell-text cell-23"></span></div>
-                <div class="cell" id="c24"><span class="cell-text cell-24"></span></div>
+                <div class="tuile" id="c0"><span class="tuile-0"></span></div>
+                <div class="tuile" id="c1"><span class="tuile-1"></span></div>
+                <div class="tuile" id="c2"><span class="tuile-2"></span></div>
+                <div class="tuile" id="c3"><span class="tuile-3"></span></div>
+                <div class="tuile" id="c4"><span class="tuile-4"></span></div>
+                <div class="tuile" id="c5"><span class="tuile-5"></span></div>
+                <div class="tuile" id="c6"><span class="tuile-6"></span></div>
+                <div class="tuile" id="c7"><span class="tuile-7"></span></div>
+                <div class="tuile" id="c8"><span class="tuile-8"></span></div>
+                <div class="tuile" id="c9"><span class="tuile-9"></span></div>
+                <div class="tuile" id="c10"><span class="tuile-10"></span></div>
+                <div class="tuile" id="c11"><span class="tuile-11"></span></div>
+                <div class="tuile joker" id="c12"><span class="tuile-12"><span>Joker</span></span></div>
+                <div class="tuile" id="c13"><span class="tuile-13"></span></div>
+                <div class="tuile" id="c14"><span class="tuile-14"></span></div>
+                <div class="tuile" id="c15"><span class="tuile-15"></span></div>
+                <div class="tuile" id="c16"><span class="tuile-16"></span></div>
+                <div class="tuile" id="c17"><span class="tuile-17"></span></div>
+                <div class="tuile" id="c18"><span class="tuile-18"></span></div>
+                <div class="tuile" id="c19"><span class="tuile-19"></span></div>
+                <div class="tuile" id="c20"><span class="tuile-20"></span></div>
+                <div class="tuile" id="c21"><span class="tuile-21"></span></div>
+                <div class="tuile" id="c22"><span class="tuile-22"></span></div>
+                <div class="tuile" id="c23"><span class="tuile-23"></span></div>
+                <div class="tuile" id="c24"><span class="tuile-24"></span></div>
             </div>
             </div>
-            <audio controls id="mp3player" class="hidden">
-                <source src="./ressources/rain/BG-Remix10s.mp3" type="audio/mp3">
+            <audio controls id="mp3Player" class="hidden">
+                <source id="mp3Song" src="" type="audio/mp3">
                 Your browser does not support the audio element.
             </audio> 
         </div>

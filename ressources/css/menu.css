@@ -1,23 +1,9 @@
-*
+/*
  * Made by Erik Terwan
  * 24th of November 2015
  * MIT License
- *
- *
- * If you are thinking of using this in
- * production code, beware of the browser
- * prefixes.
  */
-
-body
-{
-  margin: 0;
-  padding: 0;
-  
-  /* make it look decent enough */
-  background: #232323;
-  color: #cdcdcd;
-}
+ @import url("style.css");
 
 #menuToggle
 {
@@ -35,18 +21,18 @@ body
 #menuToggle a
 {
   text-decoration: none;
-  color: #232323;
+  color: var(--menu-text-color);
   
   transition: color 0.3s ease;
 }
 
 #menuToggle a:hover
 {
-  color: tomato;
+  color: var(--highlight-01);
 }
 
 
-#menuToggle input
+#menuToggle #menuToggleInput
 {
   display: block;
   width: 40px;
@@ -66,7 +52,12 @@ body
 /*
  * Just a quick hamburger
  */
-#menuToggle span
+ .hamburger {
+  position: relative;
+  width: 40px;
+  height: 32px;
+ }
+#menuToggle .hamburger span
 {
   display: block;
   width: 33px;
@@ -74,7 +65,7 @@ body
   margin-bottom: 5px;
   position: relative;
   
-  background: #cdcdcd;
+  background: var(--menu-hamburger-color);
   border-radius: 3px;
   
   z-index: 1;
@@ -86,12 +77,12 @@ body
               opacity 0.55s ease;
 }
 
-#menuToggle span:first-child
+#menuToggle .hamburger span:first-child
 {
   transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2)
+#menuToggle .hamburger span:nth-last-child(2)
 {
   transform-origin: 0% 100%;
 }
@@ -100,28 +91,32 @@ body
  * Transform all the slices of hamburger
  * into a crossmark.
  */
-#menuToggle input:checked ~ span
+#menuToggle #menuToggleInput:checked ~ .hamburger span
 {
   opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  background: var(--menu-cross-color);
+}
+#menuToggle #menuToggleInput:checked ~ .hamburger span:nth-last-child(3)
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, 0px);
 }
 
 /*
  * But let's hide the middle one.
  */
-#menuToggle input:checked ~ span:nth-last-child(3)
+#menuToggle #menuToggleInput:checked ~ .hamburger span:nth-last-child(2)
 {
   opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
+  transform: rotate(0deg) scale(0, 0);
 }
 
 /*
  * Ohyeah and the last one should go the other direction
  */
-#menuToggle input:checked ~ span:nth-last-child(2)
+#menuToggle #menuToggleInput:checked ~ .hamburger span:nth-last-child(1)
 {
-  transform: rotate(-45deg) translate(0, -1px);
+  transform: rotate(-45deg) translate(-5px,-3px);
 }
 
 /*
@@ -136,7 +131,7 @@ body
   padding: 50px;
   padding-top: 125px;
   
-  background: #ededed;
+  background: var(--menu-bg-color);
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -159,17 +154,4 @@ body
 #menuToggle input:checked ~ ul
 {
   transform: none;
-}
-
-.credit {
-  margin-top: 3em;
-  font-size: 80%;
-  font-family:arial;
-  color: #afafaf;
-  border-top: 1px solid #afafaf;
-  padding-top: 1em;
-  font-style: italic;
-}
-.credit a, .credit a:hover {
-    color: #afa7a7;
 }

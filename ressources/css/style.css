@@ -1,8 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap');
+@import url('/ressources/css/slider-volume.css');
 
+
+:root {
+    --main-bg-color: #5B5E77;
+    --streamer-bg-color: #00FF00;
+    --tuile-bg-color: #d1cfc8;
+    --tuile-hover-color: #e1e0da;
+    --tuile-sel-color: #C7CDFC;
+    --tuile-bingo-color: #7D8AFF;
+    --tuile-text-color: #000000;
+    --tuile-text-border-color: #ffffff;
+    --tuile-border-color: #ffffff;
+    --tuile-bingo-border-color: #ffffff;
+    --highlight-01: #C57DFF;
+    --highlight-02: #7DDCFF;
+    --bingo-popup-bg-color: rgba(255,255,255,0.8);
+    --menu-text-color: #000000;
+    --menu-hamburger-color: #cdcdcd;
+    --menu-cross-color: #232323;
+    --menu-bg-color: #ededed;
+    --menu-cedit-color: #afafaf;
+    --button-bg-color: #ffffff;
+    --toggle-bg-color: gray;
+    --toggle-cursor-color: white;
+    --toggle-valid-color: #bada55;
+  }
 
 html {
-    background-color: #526870;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
 
@@ -11,16 +37,19 @@ body {
     padding: 0;
     margin: 0;
 }
+.bg-normal {
+    background-color: var(--main-bg-color);
+}
+.bg-streamer {
+    background-color: var(--streamer-bg-color);
+}
 
 .title {
-    color: #669491;
+    color: var(--highlight-01);
     text-shadow: -10px 0 20px black, 0 10px 20px black, 10px 0 20px black, 0 -10px 20px black;
 }
 
-.wazo {
-    width: 200px;
-}
-
+/****** Grille du bingo ******/
 #grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -31,41 +60,55 @@ body {
     padding: 5px;
 }
 
-.cell {
-    background-color: #d1cfc8;
-    border: 1px solid #ffffff;
-    color: #000000;
+.tuile {
+    cursor: pointer;
+    background-color: var(--tuile-bg-color);
+    border: 2px solid var(--tuile-border-color);
+    color: var(--tuile-text-color);
     border-radius: 10px;
     text-align: center;
     font-size: 20px;
+    padding: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
     aspect-ratio: 1;
 }
-.joker {
-    background: url("../img/Thalia-Salut-03.png") no-repeat center #d1cfc8; 
+.tuile.joker {
+    background: no-repeat center var(--tuile-bg-color); 
+    font-family: 'Permanent Marker', cursive;
 }
-.cell.selected {
-    background-color: #669491;
+.tuile:hover {
+    background-color: var(--tuile-hover-color);
 }
-
-.bingo {
-    background-color: #a7c28f !important;
-    border-color: white !important;
+.tuile.selected {
+    background-color: var(--tuile-sel-color);
+}
+.tuile.joker span {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 50px;
+    -webkit-text-fill-color: var(--tuile-text-color);
+    -webkit-text-stroke-color: var(--tuile-text-border-color);
+    -webkit-text-stroke-width: 2px;
+    text-shadow: 0 0 5px black;
+     transform: rotate(-20deg);
+}
+.tuile.bingo {
+    background-color: var(--tuile-bingo-color) !important;
+    border-color: var(--tuile-bingo-border-color) !important;
     animation: rotate 1s ease 0s 2 alternate;
 }
 
+/****** confetis ******/
 .pop {
     animation: scale-in 1s linear 0s 1 both;
 }
-
 .floating {
     position: absolute;
     width: 75px;
     z-index: 3000;
 }
-
+/****** popup BINGO ******/
 #bingo {
     position: absolute;
     width: 100%;
@@ -73,7 +116,7 @@ body {
     margin-top: 20%;
     text-align: center;
     justify-content: center;
-    background-color: rgba(255,255,255,0.8);
+    background-color: var(--bingo-popup-bg-color);
     z-index: 2000;
     animation: bingo-in 0.5s linear 0s 1 both;
 }
@@ -87,7 +130,9 @@ body {
     margin-left:auto;
     margin-right: auto;
 }
-
+.bingo-txt {
+    display: flex;
+}
 .button {
     padding : 10px 20px 10px 20px;
     font-size: 16px;
@@ -95,16 +140,18 @@ body {
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
+    z-index: 4000;
+    background-color: var(--button-bg-color);
 }
 .button:hover {
-    background: white;
+    background: var(--highlight-02);
 }
+/* comment la classe si vous ne voulez pas avoir de rotation sur les images de la bannière bingo*/
 .rotating {
+    /*
     position: relative;
-}
-
-.bingo-txt {
-    display: flex;
+    animation: rotate 2s linear infinite;
+    */
 }
 
 .hidden {
@@ -122,15 +169,17 @@ body {
     opacity: 0;
     transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
+/******************/
+/****** MENU ******/
 /****** Toggle transparence ******/
-.toggle {
-  position:initial;
-  display: flex;
-  align-items: center;
+#menuToggle .relative {
+  position:relative;
 }
 
 #toggleTransparence {
-  margin-left: 5px;
+  position: absolute;
+  right: 40px;
+  bottom:5px;
   background: none;
 }
 
@@ -145,7 +194,7 @@ body {
     text-indent: -9999px;
     width: 60px;
     height: 30px;
-    background: grey;
+    background: var(--toggle-bg-color);
     display: block;
     border-radius: 30px;
     position: relative;
@@ -158,13 +207,13 @@ body {
     left: 5px;
     width: 20px;
     height: 20px;
-    background: #fff;
+    background: var(--toggle-cursor-color);
     border-radius: 90px;
     transition: 0.3s;
   }
   
 #toggleTransparence input:checked + label {
-    background: #bada55;
+    background: var(--toggle-valid-color);
   }
   
 #toggleTransparence input:checked + label:after {
@@ -175,6 +224,19 @@ body {
     width: 30px;
   }
 
+.credit {
+  margin-top: 3em;
+  font-size: 80%;
+  color: var(--menu-credit-color);
+  border-top: 1px solid --var(--menu-credit-color);
+  padding-top: 1em;
+  font-style: italic;
+}
+.credit a, .credit a:hover {
+    color: var(--highlight-01);
+}
+
+
 /****** Choix thèmes ******/
 #selectGrid {
   padding: 3px 10px;
@@ -184,9 +246,8 @@ body {
 
 /****** Animations ******/
 @keyframes rotate {
-    0% { transform: rotateY(0deg) scale(1.1, 1.1);}
-    70% { transform: rotateY(400deg) scale(1.2, 1.2);}
-    100% {transform: rotateY(360deg) scale(1.1, 1.1);}
+    0% { transform: rotateY(0deg);}
+    100% {transform: rotateY(360deg);}
 }
 
 @keyframes scale-in {
