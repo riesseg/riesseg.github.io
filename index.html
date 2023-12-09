@@ -9,16 +9,17 @@
         <script type="module" src="./functions/main.js"></script>
 
     </head>
-    <body>
+    <body class="bg-normal">
         <div class="page">
             <nav role="navigation">
                 <div id="menuToggle">
-                  <input type="checkbox" />
-                  
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  
+                  <input type="checkbox" id="menuToggleInput"/>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>    
+                    </div>
+                    
                     <ul id="menu">
                     <li>
                         <label for="selectGrid">Thème :</label>
@@ -27,11 +28,16 @@
                         </select>
                     </li>
                     <a href="#" id="newGrid"><li>Nouveau bingo</li></a>
-                    <li class="toggle">
+                    <li class="relative">
                         Mode transparent : 
                         <div id="toggleTransparence">
                             <input type="checkbox" id="switchTransparence" />
                             <label id="labeltrsp" for="switchTransparence">Toggle</label>
+                        </div>
+                    </li>
+                    <li class="relative">Volume bingo :
+                        <div class="slidecontainer">
+                            <input id="inputSound" type="range" min="0" max="100" value="80" step="25">
                         </div>
                     </li>
                     <div class="credit">

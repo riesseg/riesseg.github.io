@@ -1,5 +1,5 @@
 import { readFileAndReturnArray} from "./function.js";
-import { gridsFolder } from "./path.js";
+import { gridsFolder,configGridsFile, standardGridFile, standardGridName } from "./path.js";
 
 var bingoLines = [
   [0,1,2,3,4],
@@ -24,8 +24,8 @@ var bingoLines = [
 async function initGrids()
 {
   var listGrids = [];
-  listGrids.push(["Standard", "standard.txt"]);
-  var gridsConfig = await readFileAndReturnArray(gridsFolder+"config_grids.txt");
+  listGrids.push([standardGridName, standardGridFile]);
+  var gridsConfig = await readFileAndReturnArray(gridsFolder+configGridsFile);
   $.each(gridsConfig, function (index, value) {
     if (value.startsWith("grid-"))
     {
@@ -37,7 +37,7 @@ async function initGrids()
 async function initJokers()
 {
   var listJokers = [];
-  var gridsConfig = await readFileAndReturnArray(gridsFolder+"config_grids.txt");
+  var gridsConfig = await readFileAndReturnArray(gridsFolder+configGridsFile);
   $.each(gridsConfig, function (index, value) {
     if (value.startsWith("joker-"))
     {
@@ -82,7 +82,7 @@ async function getRandomSubset(array) {
   else 
   {
     //si la liste est trop courte, alors on va compléter avec la grille standard.
-    var standardGrid = await readFileAndReturnArray(gridsFolder+"standard.txt");
+    var standardGrid = await readFileAndReturnArray(gridsFolder+standardGridFile);
     resultArray = array.slice(0, array.length);
     standardGrid = standardGrid.slice().sort(() => Math.random() - 0.5);
     resultArray = resultArray.concat(standardGrid.slice(0, (25-array.length)));

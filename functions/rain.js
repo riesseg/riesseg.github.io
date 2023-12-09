@@ -1,4 +1,4 @@
-import { rainFolder, rainMp3Folder, rainImgFolder } from "./path.js";
+import { rainFolder, rainMp3Folder, rainImgFolder, configRainFile } from "./path.js";
 import { readFileAndReturnArray} from "./function.js";
 
 var audio = document.getElementById("mp3Player"); 
@@ -10,7 +10,7 @@ export var hasAnimationBeenTriggered;
 export async function initRain()
 {
   var listRain = [];
-  var gridsConfig = await readFileAndReturnArray(rainFolder+"config_rain.txt");
+  var gridsConfig = await readFileAndReturnArray(rainFolder+configRainFile);
   $.each(gridsConfig, function (index, value) {
     if (value.startsWith("img-"))
     {
@@ -23,7 +23,7 @@ export async function initRain()
 async function initMp3()
 {
   var listMp3 = [];
-  var gridsConfig = await readFileAndReturnArray(rainFolder+"config_rain.txt");
+  var gridsConfig = await readFileAndReturnArray(rainFolder+configRainFile);
   $.each(gridsConfig, function (index, value) {
     if (value.startsWith("mp3-"))
     {
@@ -45,7 +45,6 @@ export async function itsBingo() {
         var songMp3 = await randomMp3();
         audioMp3.attr("src", rainMp3Folder+songMp3);
         audio.load();
-        audio.volume = 0.9;
         audio.play();
         makeItRain()
         hasAnimationBeenTriggered = true;

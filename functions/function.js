@@ -1,3 +1,5 @@
+var displayInterval;
+
 export function hello(){
     console.log('hello');
 };
@@ -21,38 +23,39 @@ export function resetGrid(){
   }
 }
 
-export function setTransparencyMode() {
-  transparencyTrigger = !transparencyTrigger;
+export function setTransparencyMode(transparencyTrigger) {
   if(transparencyTrigger) {
-      $("html").css('background-color', '#00FF00');
-      startDisplayInterval();
+    $("body").removeClass('bg-normal').addClass('bg-streamer');
+    startDisplayInterval();
 
-      $(".container")
-          .mouseenter(function(){
-              $(".tuile").toggleClass('animated-hidden');
-              $(".tuile").toggleClass('animated-visible');
-              clearInterval(displayInterval);
-          })
-          .mouseleave(function() {
-              startDisplayInterval();
-          })
+    $("#grid")
+      .mouseenter(function(){
+          $(".tuile").removeClass('animated-hidden').addClass('animated-visible');
+          clearInterval(displayInterval);
+      })
+      .mouseleave(function() {
+          startDisplayInterval();
+      })
   } else {
-      $("html").css('background-color', '#526870');
-      $(".tuile").toggleClass('animated-hidden');
-      $(".tuile").toggleClass('animated-visible');
-      clearInterval(displayInterval);
-      $(".container").unbind("mouseenter");
-      $(".container").unbind("mouseleave");
+    $("body").removeClass('bg-streamer').addClass('bg-normal');
+    $(".tuile").removeClass('animated-hidden').addClass('animated-visible');
+    clearInterval(displayInterval);
+    $("#grid").unbind("mouseenter");
+    $("#grid").unbind("mouseleave");
   }
 }
 
 function startDisplayInterval() {
   displayInterval = setInterval(
       function() {
-          if ($('.container:hover').length === 0) {
-              $(".tuile").addClass('animated-hidden');
-              $(".tuile").removeClass('animated-visible');
+          if ($('#grid:hover').length === 0) {
+              $(".tuile").removeClass('animated-visible').addClass('animated-hidden');
           }
       }
   , 1000)
+}
+
+export function setVolume(volume) {
+  var audio = document.getElementById("mp3Player"); 
+  audio.volume = volume;
 }

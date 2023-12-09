@@ -33,15 +33,3 @@ Une liste déroulante permet de sélectionner la grille active.
 Utile pour les vidéastes qui souhaitent utiliser le jeu dans le logiciel de live.
 En effet, le mode va transformer le fond en vert et faire dispaître les tuiles.
 Un interrupteur présent dans le menu permet de réafficher la grille.
-
-# **TODO**
-
-* [X] fichier de configuration pour simplifier les personnalisations :
-  * [X] rain
-  * [X] grid
-  * [X] images (annulé)
-  * [X] musique
-* [X] musique aléatoire lors d'un bingo
-* [ ] choix de l'image sur la tuile Joker en aléatoire
-* [X] CSS avec variables pour simplifier la personnalisation
-* [ ] Choix volume musique

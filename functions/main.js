@@ -1,9 +1,9 @@
-import { resetGrid, setTransparencyMode } from "./function.js";
+import { resetGrid, setTransparencyMode, setVolume } from "./function.js";
 import { setGrid, loadGridsChoice, isBingo, getRandomJoker  } from "./grid.js";
 import { itsBingo, continueBingo, resetBingoAnim} from "./rain.js";
-import { gridsFolder, gridsImgJokerFolder } from "./path.js";
+import { gridsFolder, gridsImgJokerFolder, standardGridFile } from "./path.js";
 
-var selectedGrid = "standard.txt";
+var selectedGrid = standardGridFile;
 var displayInterval;
 var transparencyTrigger = false;
 
@@ -21,9 +21,12 @@ $(document).ready(async function() {
     loadGridsChoice();
 
     transparencyTrigger = false;
-    console.log(gridsImgJokerFolder+imgJoker)
     $(".joker").css("background-image","url('"+gridsImgJokerFolder+imgJoker+"')");
-    
+
+});
+
+$('#inputSound').on('input', function () {
+    setVolume($(this).val()/100);
 });
 
 $(".tuile").on('click', function(){
@@ -34,7 +37,7 @@ $(".tuile").on('click', function(){
 });
 
 $("#selectGrid").on('change', function () {
-    selectedGrid = $("#selectGrid").val();
+    selectedGrid = $(this).val();
 });
 
 $('#newGrid').on('click',function (e) {
@@ -47,8 +50,9 @@ $('#continueBingo').on('click', function() {
     continueBingo();
 });
 
-$('#toggleTransparence').change(function() {
-    setTransparencyMode()
+$('#toggleTransparence').on('change', function () {
+    transparencyTrigger = !transparencyTrigger;
+    setTransparencyMode(transparencyTrigger);
 });
 
 
