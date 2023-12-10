@@ -13,7 +13,6 @@ export function hello() {
 };
 
 $(document).ready(async function() {
-    console.log($.cookie())
     if ( $.cookie('selectedGrid') != undefined) {selectedGrid = $.cookie('selectedGrid');}
     if ( $.cookie('selectAlign') != undefined) {selectedAlign = $.cookie('selectAlign');}
     if ( $.cookie('transparencyTrigger') != undefined) {transparencyTrigger = convertBool($.cookie('transparencyTrigger'));}

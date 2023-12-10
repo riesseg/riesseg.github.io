@@ -24,7 +24,6 @@ export function resetGrid(){
 }
 
 export function setTransparencyMode(transparencyTrigger) {
-  console.log("changing:" +transparencyTrigger)
   if(transparencyTrigger) {
     $("body").removeClass('bg-normal').addClass('bg-streamer');
     startDisplayInterval();
