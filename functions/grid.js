@@ -97,13 +97,15 @@ async function getRandomSubset(array) {
 };
 
 // Fonction pour charger les options dans le menu déroulant
-export async function loadGridsChoice() {
+export async function loadGridsChoice(selected) {
   var listGrids = await initGrids();
 
   var selectState = $("#selectGrid");
   // Ajouter les options au menu déroulant
   $.each(listGrids, function (index, value) {
-    selectState.append($("<option>", { value: value[1], text: value[0] }));
+    if (value[1] == selected ) { selectState.append($("<option>", { value: value[1], text: value[0], selected: selected }));}
+    else {selectState.append($("<option>", { value: value[1], text: value[0] }));}
+    
   });
 }
 

@@ -59,3 +59,21 @@ export function setVolume(volume) {
   var audio = document.getElementById("mp3Player"); 
   audio.volume = volume;
 }
+
+export function changeAlign(align) {
+  $(".container").css("justify-content",align);
+}
+export function convertBool(bool) {
+  if (bool == 'false') { return false}
+  return true;
+}
+export function revertCheck(input) {
+  if ($(input).is(':checked'))
+  {
+    $(input).prop('checked', false);
+  }
+  else
+  {
+    $(input).prop('checked', true);
+  }
+}

@@ -12,12 +12,27 @@ export async function initRain()
   var listRain = [];
   var gridsConfig = await readFileAndReturnArray(rainFolder+configRainFile);
   $.each(gridsConfig, function (index, value) {
-    if (value.startsWith("img-"))
+    if (value.startsWith("rain-"))
     {
-        listRain.push(value.substring(4, value.length));
+        listRain.push(value.substring(5, value.length));
     }
   });
   return listRain;
+}
+
+async function initImgBingo()
+{
+  var listImgBingo = [];
+  var imgBingo = await readFileAndReturnArray(rainFolder+configRainFile);
+  $.each(imgBingo, function (index, value) {
+    if (value.startsWith("img-"))
+    {
+        let tmpImg = value.split(';')
+        listImgBingo.push([tmpImg[0].substring(4, tmpImg[0].length),tmpImg[1]]);
+    }
+  });
+  return listImgBingo;
+  ;
 }
 
 async function initMp3()
@@ -32,6 +47,14 @@ async function initMp3()
   });
   return listMp3;
 }
+
+export async function GetRandomImgBingo()
+{
+    var listImgBingo = await initImgBingo();
+    let rngArray = Math.floor((Math.random() * listImgBingo.length));
+    return listImgBingo[rngArray];
+}
+
 export async function randomMp3()
 {
     var listMp3 = await initMp3();
@@ -40,15 +63,20 @@ export async function randomMp3()
 }
 
 export async function itsBingo() {
-        if(!hasAnimationBeenTriggered) {
-        $("#bingo").toggleClass("hidden");
-        var songMp3 = await randomMp3();
-        audioMp3.attr("src", rainMp3Folder+songMp3);
-        audio.load();
-        audio.play();
-        makeItRain()
-        hasAnimationBeenTriggered = true;
-    }
+  if(!hasAnimationBeenTriggered) 
+  {
+    hasAnimationBeenTriggered = true;
+
+    $("#bingo").toggleClass("hidden");
+    var songMp3 = await randomMp3();
+    audioMp3.attr("src", rainMp3Folder+songMp3);
+    audio.load();
+    audio.play();
+    makeItRain();
+    setTimeout(function(){
+      clearInterval(interval);
+  }, 20000);
+  }
 }
 
 async function makeItRain() {
@@ -71,4 +99,15 @@ export function continueBingo() {
 
 export function resetBingoAnim() {
     hasAnimationBeenTriggered = false;
+}
+
+export function isRotate(img){
+  if (img == 'rotate')
+    {
+        $(".imgBingo").addClass("rotating");
+    }
+    else
+    {
+        $(".imgBingo").removeClass("rotating");
+    }
 }
