@@ -13,10 +13,10 @@ export function hello() {
 };
 
 $(document).ready(async function() {
-    if ( $.cookie('selectedGrid') != undefined) {selectedGrid = $.cookie('selectedGrid');}
-    if ( $.cookie('selectAlign') != undefined) {selectedAlign = $.cookie('selectAlign');}
-    if ( $.cookie('transparencyTrigger') != undefined) {transparencyTrigger = convertBool($.cookie('transparencyTrigger'));}
-    if ( $.cookie('inputSound') != undefined) {selectedVolume = $.cookie('inputSound');}
+    if ( Cookies.get('selectedGrid') != undefined) {selectedGrid = Cookies.get('selectedGrid');}
+    if ( Cookies.get('selectAlign') != undefined) {selectedAlign = Cookies.get('selectAlign');}
+    if ( Cookies.get('transparencyTrigger') != undefined) {transparencyTrigger = convertBool(Cookies.get('transparencyTrigger'));}
+    if ( Cookies.get('inputSound') != undefined) {selectedVolume = Cookies.get('inputSound');}
 
     var imgJoker  = await  getRandomJoker();
     var imgBingo  = await  GetRandomImgBingo();
@@ -43,21 +43,6 @@ $(".tuile").on('click', function(){
     }
 });
 
-$("#selectGrid").on('change', function () {
-    selectedGrid = $(this).val();
-    $.cookie("selectedGrid",selectedGrid, { expires: 7 });
-});
-
-$("#selectAlign").on('change', function () {
-    changeAlign($(this).val());
-    $.cookie("selectAlign",$(this).val(), { expires: 7 });
-});
-
-$('#inputSound').on('input', function () {
-    setVolume($(this).val()/100);
-    $.cookie("inputSound",$(this).val(), { expires: 7 });
-});
-
 $('#newGrid').on('click',function (e) {
     setGrid(gridsFolder+selectedGrid);
     resetBingoAnim();
@@ -68,10 +53,25 @@ $('#continueBingo').on('click', function() {
     continueBingo();
 });
 
+$("#selectGrid").on('change', function () {
+    selectedGrid = $(this).val();
+    Cookies.set("selectedGrid",selectedGrid, { expires: 7, sameSite: 'strict'  });
+});
+
+$("#selectAlign").on('change', function () {
+    changeAlign($(this).val());
+    Cookies.set("selectAlign",$(this).val(), { expires: 7, sameSite: 'strict'  });
+});
+
+$('#inputSound').on('input', function () {
+    setVolume($(this).val()/100);
+    Cookies.set("inputSound",$(this).val(), { expires: 7, sameSite: 'strict'  });
+});
+
 $('.switchTrsp').on('click', function () {
     revertCheck("#switchTransparence");
     setTransparencyMode($("#switchTransparence").is(':checked'));
-    $.cookie("transparencyTrigger",$("#switchTransparence").is(':checked'), { expires: 7 });
+    Cookies.set("transparencyTrigger",$("#switchTransparence").is(':checked'), { expires: 7, sameSite: 'strict' });
 });
 
 
