@@ -43,3 +43,4 @@ Un interrupteur présent dans le menu permet de réafficher la grille.
 * [ ] faire une branch main neutre, et une branche HA et une branche Bubuche
 * [ ] Faire une option pour mettre la grille a gauche ou a droite
   * [ ] ou la placer en drag and drop ? a voir...
+* [ ] Revoir la version mobile vitef

@@ -11,7 +11,7 @@
     </head>
     <body class="bg-normal">
         <div class="page">
-            <nav role="navigation">
+            <nav id="nav" role="navigation">
                 <div id="menuToggle">
                   <input type="checkbox" id="menuToggleInput"/>
                     <div class="hamburger">
@@ -21,69 +21,77 @@
                     </div>
                     
                     <ul id="menu">
-                    <li>
-                        <label for="selectGrid">Thème :</label>
-                        <select id="selectGrid">
-                            <!-- Options seront ajoutées dynamiquement par JavaScript -->
-                        </select>
-                    </li>
-                    <a href="#" id="newGrid"><li>Nouveau bingo</li></a>
-                    <li class="relative">
-                        Mode transparent : 
-                        <div id="toggleTransparence">
-                            <input type="checkbox" id="switchTransparence" />
-                            <label id="labeltrsp" for="switchTransparence">Toggle</label>
+                        <li class="relative">
+                            <label for="selectGrid">Thème :</label>
+                            <select id="selectGrid">
+                                <!-- Options seront ajoutées dynamiquement par JavaScript -->
+                            </select>
+                        </li>
+                        <a href="#" id="newGrid"><li>Nouveau bingo</li></a>
+                        <li class="relative">
+                            Mode Streamer : 
+                            <div id="toggleTransparence">
+                                <input type="checkbox" id="switchTransparence" />
+                                <label id="labeltrsp" for="switchTransparence">Toggle</label>
+                            </div>
+                        </li>
+                        <li class="relative">
+                            <label for="selectAlign">Alignement gille :</label>
+                            <select id="selectAlign">
+                                <option value="left">Gauche</option>
+                                <option value="center" selected>Centre</option>
+                                <option value="right">Droite</option>
+                            </select>
+                        </li>
+                        <li class="relative">Volume bingo :
+                            <div class="slidecontainer">
+                                <input id="inputSound" type="range" min="0" max="100" value="80" step="25">
+                            </div>
+                        </li>
+                        <div class="credit">
+                            menu by : <a href="https://erikterwan.com/" target="_blank">erikterwan</a><br />
+                            origin bingo by : <a href="https://github.com/LeGalAlexis/" target="_blank">Plogojowitz</a><br />
+                            new bingo by : Gollgotth    
                         </div>
-                    </li>
-                    <li class="relative">Volume bingo :
-                        <div class="slidecontainer">
-                            <input id="inputSound" type="range" min="0" max="100" value="80" step="25">
-                        </div>
-                    </li>
-                    <div class="credit">
-                        menu by : <a href="https://erikterwan.com/" target="_blank">erikterwan</a><br />
-                        origin bingo by : <a href="https://github.com/LeGalAlexis/" target="_blank">Plogojowitz</a><br />
-                        new bingo by : Gollgotth    
-                    </div>
-                </ul>
+                    </ul>
                 </div>
               </nav>
             <div class="container">
                 <div id="bingo" class="hidden">
                     <div class="content">
-                    <img class="rotating" src="/ressources/img/Lion-Coin.gif">
-                    <h1>BINGO</h1>
-                    <img class="rotating" src="/ressources/img/Lion-Coin.gif">
-                    <button class="button" id="continueBingo">Continuer</button>
+                        <img class="rotating" src="/ressources/img/Lion-Coin.gif">
+                        <h1>BINGO</h1>
+                        <img class="rotating" src="/ressources/img/Lion-Coin.gif">
+                        <button class="button" id="continueBingo">Continuer</button>
+                    </div>
                 </div>
-            </div>
-            <div id = "grid">
-                <div class="tuile" id="c0"><span class="tuile-0"></span></div>
-                <div class="tuile" id="c1"><span class="tuile-1"></span></div>
-                <div class="tuile" id="c2"><span class="tuile-2"></span></div>
-                <div class="tuile" id="c3"><span class="tuile-3"></span></div>
-                <div class="tuile" id="c4"><span class="tuile-4"></span></div>
-                <div class="tuile" id="c5"><span class="tuile-5"></span></div>
-                <div class="tuile" id="c6"><span class="tuile-6"></span></div>
-                <div class="tuile" id="c7"><span class="tuile-7"></span></div>
-                <div class="tuile" id="c8"><span class="tuile-8"></span></div>
-                <div class="tuile" id="c9"><span class="tuile-9"></span></div>
-                <div class="tuile" id="c10"><span class="tuile-10"></span></div>
-                <div class="tuile" id="c11"><span class="tuile-11"></span></div>
-                <div class="tuile joker" id="c12"><span class="tuile-12"><span>Joker</span></span></div>
-                <div class="tuile" id="c13"><span class="tuile-13"></span></div>
-                <div class="tuile" id="c14"><span class="tuile-14"></span></div>
-                <div class="tuile" id="c15"><span class="tuile-15"></span></div>
-                <div class="tuile" id="c16"><span class="tuile-16"></span></div>
-                <div class="tuile" id="c17"><span class="tuile-17"></span></div>
-                <div class="tuile" id="c18"><span class="tuile-18"></span></div>
-                <div class="tuile" id="c19"><span class="tuile-19"></span></div>
-                <div class="tuile" id="c20"><span class="tuile-20"></span></div>
-                <div class="tuile" id="c21"><span class="tuile-21"></span></div>
-                <div class="tuile" id="c22"><span class="tuile-22"></span></div>
-                <div class="tuile" id="c23"><span class="tuile-23"></span></div>
-                <div class="tuile" id="c24"><span class="tuile-24"></span></div>
-            </div>
+                <div id = "grid">
+                    <div class="tuile" id="c0"><span class="tuile-0"></span></div>
+                    <div class="tuile" id="c1"><span class="tuile-1"></span></div>
+                    <div class="tuile" id="c2"><span class="tuile-2"></span></div>
+                    <div class="tuile" id="c3"><span class="tuile-3"></span></div>
+                    <div class="tuile" id="c4"><span class="tuile-4"></span></div>
+                    <div class="tuile" id="c5"><span class="tuile-5"></span></div>
+                    <div class="tuile" id="c6"><span class="tuile-6"></span></div>
+                    <div class="tuile" id="c7"><span class="tuile-7"></span></div>
+                    <div class="tuile" id="c8"><span class="tuile-8"></span></div>
+                    <div class="tuile" id="c9"><span class="tuile-9"></span></div>
+                    <div class="tuile" id="c10"><span class="tuile-10"></span></div>
+                    <div class="tuile" id="c11"><span class="tuile-11"></span></div>
+                    <div class="tuile joker" id="c12"><span class="tuile-12"><span>Joker</span></span></div>
+                    <div class="tuile" id="c13"><span class="tuile-13"></span></div>
+                    <div class="tuile" id="c14"><span class="tuile-14"></span></div>
+                    <div class="tuile" id="c15"><span class="tuile-15"></span></div>
+                    <div class="tuile" id="c16"><span class="tuile-16"></span></div>
+                    <div class="tuile" id="c17"><span class="tuile-17"></span></div>
+                    <div class="tuile" id="c18"><span class="tuile-18"></span></div>
+                    <div class="tuile" id="c19"><span class="tuile-19"></span></div>
+                    <div class="tuile" id="c20"><span class="tuile-20"></span></div>
+                    <div class="tuile" id="c21"><span class="tuile-21"></span></div>
+                    <div class="tuile" id="c22"><span class="tuile-22"></span></div>
+                    <div class="tuile" id="c23"><span class="tuile-23"></span></div>
+                    <div class="tuile" id="c24"><span class="tuile-24"></span></div>
+                </div>
             </div>
             <audio controls id="mp3Player" class="hidden">
                 <source id="mp3Song" src="" type="audio/mp3">

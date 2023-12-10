@@ -1,4 +1,4 @@
-import { resetGrid, setTransparencyMode, setVolume } from "./function.js";
+import { resetGrid, setTransparencyMode, setVolume, changeAlign } from "./function.js";
 import { setGrid, loadGridsChoice, isBingo, getRandomJoker  } from "./grid.js";
 import { itsBingo, continueBingo, resetBingoAnim} from "./rain.js";
 import { gridsFolder, gridsImgJokerFolder, standardGridFile } from "./path.js";
@@ -38,6 +38,10 @@ $(".tuile").on('click', function(){
 
 $("#selectGrid").on('change', function () {
     selectedGrid = $(this).val();
+});
+
+$("#selectAlign").on('change', function () {
+    changeAlign($(this).val());
 });
 
 $('#newGrid').on('click',function (e) {

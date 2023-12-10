@@ -59,3 +59,7 @@ export function setVolume(volume) {
   var audio = document.getElementById("mp3Player"); 
   audio.volume = volume;
 }
+
+export function changeAlign(align) {
+  $(".container").css("justify-content",align);
+}

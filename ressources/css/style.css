@@ -49,14 +49,27 @@ body {
     text-shadow: -10px 0 20px black, 0 10px 20px black, 10px 0 20px black, 0 -10px 20px black;
 }
 
+#nav::after {
+  content: "";
+  clear: both;
+  display:table;
+}
+
+.container {
+  clear:both;
+  padding: 0px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clear:right;
+}
 /****** Grille du bingo ******/
 #grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 5px;
+    min-width: 800px;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
     padding: 5px;
 }
 
@@ -148,6 +161,7 @@ body {
 }
 /* comment la classe si vous ne voulez pas avoir de rotation sur les images de la bannière bingo*/
 .rotating {
+    display: inline;
     /*
     position: relative;
     animation: rotate 2s linear infinite;
@@ -172,6 +186,7 @@ body {
 /******************/
 /****** MENU ******/
 /****** Toggle transparence ******/
+
 #menuToggle .relative {
   position:relative;
 }
@@ -239,9 +254,19 @@ body {
 
 /****** Choix thèmes ******/
 #selectGrid {
+  position: absolute;
+  right: 0;
   padding: 3px 10px;
   font-size: 16px;
   width: 70%;
+}
+/****** Choix Align ******/
+#selectAlign {
+  position: absolute;
+  right: 0;
+  padding: 3px 10px;
+  font-size: 16px;
+  width: 41%;
 }
 
 /****** Animations ******/
