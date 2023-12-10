@@ -10,10 +10,5 @@
 # les lignes qui commencent par joker- concernent les images utilisées pour la case Joker. Il peut ne pas y en avoir.
 #
 #
-grid-Secret d'histoire;secret_histoire.txt
-grid-Ravioli;ravioli.txt
+grid-Gaming;gaming.txt
 joker-Bingo.png
-joker-emoteShield.png
-joker-emoteThalia.png
-joker-emoteThaliaLove.png
-joker-emoteTruelle.png
