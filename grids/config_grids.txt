@@ -10,5 +10,7 @@
 # les lignes qui commencent par joker- concernent les images utilisées pour la case Joker. Il peut ne pas y en avoir.
 #
 #
-grid-Gaming;gaming.txt
+grid-React Animalier;reactAnimalier.txt
+
 joker-Bingo.png
+joker-bubuchenewsub.gif

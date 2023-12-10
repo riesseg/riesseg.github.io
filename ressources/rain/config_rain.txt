@@ -15,12 +15,16 @@
 #
 mp3-HamsterDanceSong-18s.mp3
 mp3-PoireauSong-16s.mp3
+mp3-bird-machine-audio.mp3
 
 rain-confeti2.png
 rain-confeti3.png
 rain-confeti4.png
-rain-confeti5.png
-rain-confeti6.png
-rain-confeti7.png
+rain-buchehap112px.png
+rain-mims2.png
+rain-pipe112px.png
+rain-wazo_112px.png
 
 img-star.png;rotate
+img-bubuchenewsub.png
+img-wazo_112px.png;rotate

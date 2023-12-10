@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto&display=swap');
 
 :root {
-    --main-bg-color: #5B5E77;
+    --main-bg-color: #36393F;
     --streamer-bg-color: #00FF00;
-    --tuile-bg-color: #d1cfc8;
+    --tuile-bg-color: #40444B;
     --tuile-hover-color: #e1e0da;
-    --tuile-sel-color: #C7CDFC;
-    --tuile-bingo-color: #7D8AFF;
+    --tuile-sel-color: #669491;
+    --tuile-bingo-color: #a7c28f;
     --tuile-text-color: #000000;
     --tuile-text-border-color: #ffffff;
     --tuile-border-color: #ffffff;
     --tuile-bingo-border-color: #ffffff;
-    --highlight-01: #C57DFF;
-    --highlight-02: #7DDCFF;
+    --highlight-01: #BD5C40;
+    --highlight-02: #82BD40;
     --bingo-popup-bg-color: rgba(255,255,255,0.8);
     --menu-text-color: #000000;
     --menu-hamburger-color: #cdcdcd;
