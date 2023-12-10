@@ -12,7 +12,7 @@
   top: 20px;
   left: 20px;
   
-  z-index: 1;
+  z-index: 5000;
   
   -webkit-user-select: none;
   user-select: none;
@@ -55,14 +55,16 @@
  .hamburger {
   position: relative;
   width: 40px;
-  height: 32px;
+  height: 40px;
+   margin-bottom:20px;
+   clear: both;
  }
 #menuToggle .hamburger span
 {
   display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
+  width: 100%;
+  height: 15%;
+  margin-bottom: 15%;
   position: relative;
   
   background: var(--menu-hamburger-color);
@@ -99,7 +101,7 @@
 #menuToggle #menuToggleInput:checked ~ .hamburger span:nth-last-child(3)
 {
   opacity: 1;
-  transform: rotate(45deg) translate(-2px, 0px);
+  transform: rotate(45deg) translate(0px, 0px);
 }
 
 /*

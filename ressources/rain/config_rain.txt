@@ -3,8 +3,13 @@
 #
 # les lignes qui commencent par mp3- concernent les musiques de bingo.
 #       si il y'en a plusieur, l'une sera prise aléatoire lors de la création de la grilles
+#       elles doivent être dnas le dossier /ressources/rain/mp3/
 # les lignes qui commencent par rain- concernent les images utilisées pour la pluie lors d'un bingo
 #       elles sont toutes utilisées aléatoirement pour faire la pluie
+#       elles doivent être dans le dossier /ressources/rain/img-rain/
+# les lignes qui commencent par img- concernent l'image utilisée dans la popup Bingo
+#       elle est sélectionnée aléatoirement
+#       elles doivent être dans le dossier /ressources/rain/img/
 #
 #
 mp3-BG-Remix10s.mp3

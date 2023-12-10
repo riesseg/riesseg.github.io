@@ -4,10 +4,10 @@
 # La grille standard.txt est OBLIGATOIRE
 # Elle ne fait pas partie de la configuration
 # Elle initie le Bingo quand on arrive dessus, et permet de compléter les autres thèmes si ils n'ont pas 24 lignes.
-# standart.txt DOIT contenir au moins 24 lignes !!
+# standart.txt DOIT contenir au moins 25 lignes !!
 #
-# les lignes qui commencent par mp3- concernent les grilles du bingo.
-# les lignes qui commencent par mp3- concernent les images utilisées pour la case Joker. Il peut ne pas y en avoir.
+# les lignes qui commencent par grid- concernent les grilles du bingo.
+# les lignes qui commencent par joker- concernent les images utilisées pour la case Joker. Il peut ne pas y en avoir.
 #
 #
 grid-Secret d'histoire;secret_histoire.txt
