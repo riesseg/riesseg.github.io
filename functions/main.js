@@ -1,7 +1,7 @@
 import { resetGrid, setTransparencyMode, setVolume, changeAlign } from "./function.js";
 import { setGrid, loadGridsChoice, isBingo, getRandomJoker  } from "./grid.js";
-import { itsBingo, continueBingo, resetBingoAnim} from "./rain.js";
-import { gridsFolder, gridsImgJokerFolder, standardGridFile } from "./path.js";
+import { itsBingo, continueBingo, resetBingoAnim, GetrandomImgBIngo} from "./rain.js";
+import { gridsFolder, gridsImgJokerFolder, standardGridFile, bingoImgFolder } from "./path.js";
 
 var selectedGrid = standardGridFile;
 var displayInterval;
@@ -12,17 +12,18 @@ export function hello() {
 };
 
 $(document).ready(async function() {
-    var selectGrid = $("#selectGrid");
-    var imgJoker  =await  getRandomJoker();
+    var imgJoker  = await  getRandomJoker();
+    var imgBingo  = await  GetrandomImgBIngo();
 
     setGrid(gridsFolder+selectedGrid);
-    selectGrid.val(selectedGrid);
+    $("#selectGrid").val(selectedGrid);
 
     loadGridsChoice();
 
     transparencyTrigger = false;
+    
     $(".joker").css("background-image","url('"+gridsImgJokerFolder+imgJoker+"')");
-
+    $(".imgBingo").attr("src", bingoImgFolder+imgBingo);
 });
 
 $('#inputSound').on('input', function () {

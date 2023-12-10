@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&family=Roboto&display=swap');
 @import url('/ressources/css/slider-volume.css');
 
 
@@ -89,7 +88,6 @@ body {
 }
 .tuile.joker {
     background: no-repeat center var(--tuile-bg-color); 
-    font-family: 'Permanent Marker', cursive;
 }
 .tuile:hover {
     background-color: var(--tuile-hover-color);
@@ -98,7 +96,7 @@ body {
     background-color: var(--tuile-sel-color);
 }
 .tuile.joker span {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Luckiest Guy', cursive;
     font-size: 50px;
     -webkit-text-fill-color: var(--tuile-text-color);
     -webkit-text-stroke-color: var(--tuile-text-border-color);
@@ -136,7 +134,8 @@ body {
 #bingo h1 {
     display: inline;
     font-size: 10rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Luckiest Guy', sans-serif;
+    padding: 0em 0.2em;
 }
 #bingo button {
     display: block;

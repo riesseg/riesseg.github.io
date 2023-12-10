@@ -12,12 +12,32 @@ export async function initRain()
   var listRain = [];
   var gridsConfig = await readFileAndReturnArray(rainFolder+configRainFile);
   $.each(gridsConfig, function (index, value) {
+    if (value.startsWith("rain-"))
+    {
+        listRain.push(value.substring(5, value.length));
+    }
+  });
+  return listRain;
+}
+
+async function initImgBingo()
+{
+  var listRain = [];
+  var gridsConfig = await readFileAndReturnArray(rainFolder+configRainFile);
+  $.each(gridsConfig, function (index, value) {
     if (value.startsWith("img-"))
     {
         listRain.push(value.substring(4, value.length));
     }
   });
   return listRain;
+}
+
+export async function GetrandomImgBIngo()
+{
+    var listImgBingo = await initImgBingo();
+    let rngArray = Math.floor((Math.random() * listImgBingo.length));
+    return listImgBingo[rngArray];
 }
 
 async function initMp3()

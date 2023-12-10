@@ -3,15 +3,18 @@
 #
 # les lignes qui commencent par mp3- concernent les musiques de bingo.
 #       si il y'en a plusieur, l'une sera prise aléatoire lors de la création de la grilles
-# les lignes qui commencent par img- concernent les images utilisées pour la pluie lors d'un bingo
+# les lignes qui commencent par rain- concernent les images utilisées pour la pluie lors d'un bingo
 #       elles sont toutes utilisées aléatoirement pour faire la pluie
 #
 #
 mp3-BG-Remix10s.mp3
-mp3-bird-machine-audio.mp3
+mp3-HamsterDanceSong18s.mp3
+mp3-Oignon-35s.mp.mp3
+mp3-PoireauSong-16s.mp3
 
-img-Lion-Coin.png
-img-Tw_abo-T1.png
-img-Tw_abo-T2.png
-img-Tw_abo-T3.png
-img-mims2.png
+rain-Lion-Coin.png
+rain-Tw_abo-T1.png
+rain-Tw_abo-T2.png
+rain-Tw_abo-T3.png
+
+img-Lion-Coin.gif

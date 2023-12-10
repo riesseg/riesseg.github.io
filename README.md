@@ -34,13 +34,12 @@ Utile pour les vidéastes qui souhaitent utiliser le jeu dans le logiciel de liv
 En effet, le mode va transformer le fond en vert et faire dispaître les tuiles.
 Un interrupteur présent dans le menu permet de réafficher la grille.
 
-
 # Todo
 
-* [ ] mettre les images du popup bingo en variables
-* [ ] revoir la police du bingo dans la popup (quand même...)
+* [X] mettre les images du popup bingo en variables
+* [X] revoir la police du bingo dans la popup (quand même...)
 * [ ] Faire une explication du fonctionnement des paramétrages
 * [ ] faire une branch main neutre, et une branche HA et une branche Bubuche
-* [ ] Faire une option pour mettre la grille a gauche ou a droite
-  * [ ] ou la placer en drag and drop ? a voir...
+* [X] Faire une option pour mettre la grille a gauche ou a droite
+  * [X] ou la placer en drag and drop ? a voir... (non)
 * [ ] Revoir la version mobile vitef
