@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto&display=swap');
-
+@font-face {font-family: 'bingo'; src:url("../fonts/TheWildBreathofZelda.otf")}
 :root {
-    --main-bg-color: #36393F;
+    --main-bg-color: #4f9185;
     --streamer-bg-color: #00FF00;
-    --tuile-bg-color: #40444B;
-    --tuile-hover-color: #e1e0da;
-    --tuile-sel-color: #669491;
+    --tuile-bg-color: #6b778a;
+    --tuile-hover-color: #8290a7;
+    --tuile-sel-color: #7b8ba5;
     --tuile-bingo-color: #a7c28f;
-    --tuile-text-color: #000000;
-    --tuile-text-border-color: #ffffff;
-    --tuile-border-color: #ffffff;
+    --tuile-text-color: #ffffff;
+    --tuile-text-border-color: #000000;
+    --tuile-border-color: #000000;
     --tuile-bingo-border-color: #ffffff;
-    --highlight-01: #BD5C40;
-    --highlight-02: #82BD40;
+    --highlight-01: #e36f4f;
+    --highlight-02: #a1e94f;
     --bingo-popup-bg-color: rgba(255,255,255,0.8);
     --menu-text-color: #000000;
     --menu-hamburger-color: #cdcdcd;
@@ -87,6 +87,7 @@ body {
     align-items: center;
     justify-content: center;
     aspect-ratio: 1;
+    hyphens: auto;
 }
 .tuile.joker {
     background: no-repeat center var(--tuile-bg-color);
@@ -137,7 +138,7 @@ body {
     position: relative;
     display: inline-block;
     font-size: 10rem;
-    font-family: 'Luckiest Guy', sans-serif;
+    font-family: 'bingo', 'Luckiest Guy', sans-serif;
     padding: 0em 0.2em;
     animation: boing 2s linear infinite;
 }

@@ -26,5 +26,5 @@ rain-pipe112px.png
 rain-wazo_112px.png
 
 img-star.png;rotate
-img-bubuchenewsub.png
+img-bubuchenewsub.gif
 img-wazo_112px.png;rotate
