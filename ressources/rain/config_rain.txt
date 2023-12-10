@@ -1,16 +1,17 @@
 # Si une ligne commence par un #, elle n'est pas prise en compte. C'est un commentaire.
 # Il faut une ligne par type de grille
+# Attention, les noms des fichiers sont sensible à la casse
 #
-# les lignes qui commencent par mp3- concernent les musiques de bingo.
+# Les lignes qui commencent par mp3- concernent les musiques de bingo.
 #       si il y'en a plusieur, l'une sera prise aléatoire lors de la création de la grilles
 #       elles doivent être dnas le dossier /ressources/rain/mp3/
-# les lignes qui commencent par rain- concernent les images utilisées pour la pluie lors d'un bingo
+# Les lignes qui commencent par rain- concernent les images utilisées pour la pluie lors d'un bingo
 #       elles sont toutes utilisées aléatoirement pour faire la pluie
 #       elles doivent être dans le dossier /ressources/rain/img-rain/
-# les lignes qui commencent par img- concernent l'image utilisée dans la popup Bingo
+# Les lignes qui commencent par img- concernent l'image utilisée dans la popup Bingo
 #       elle est sélectionnée aléatoirement
 #       elles doivent être dans le dossier /ressources/rain/img/
-#
+#       en indiquant ;rotate après le nom de l'image, l'image tournera sur elle même dans le bingo.
 #
 mp3-BG-Remix10s.mp3
 mp3-HamsterDanceSong-18s.mp3
@@ -21,5 +22,12 @@ rain-Lion-Coin.png
 rain-Tw_abo-T1.png
 rain-Tw_abo-T2.png
 rain-Tw_abo-T3.png
+rain-confeti2.png
+rain-confeti3.png
+rain-confeti4.png
+rain-confeti5.png
+rain-confeti6.png
+rain-confeti7.png
 
 img-Lion-Coin.gif
+img-star.png;rotate

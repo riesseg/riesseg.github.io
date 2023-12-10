@@ -12,7 +12,8 @@
 #
 grid-Secret d'histoire;secret_histoire.txt
 grid-Ravioli;ravioli.txt
-joker-histoiBonk.png
-joker-Thalia-Fan.png
-joker-Thalia-Salut-03.png
-joker-Thalia-Thug.png
+joker-Bingo.png
+joker-emoteShield.png
+joker-emoteThalia.png
+joker-emoteThaliaLove.png
+joker-emoteTruelle.png

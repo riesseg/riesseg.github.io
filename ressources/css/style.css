@@ -89,7 +89,8 @@ body {
     aspect-ratio: 1;
 }
 .tuile.joker {
-    background: no-repeat center var(--tuile-bg-color); 
+    background: no-repeat center var(--tuile-bg-color);
+    background-size: 80% 80%;
 }
 .tuile:hover {
     background-color: var(--tuile-hover-color);
@@ -140,6 +141,9 @@ body {
     padding: 0em 0.2em;
     animation: boing 2s linear infinite;
 }
+#bingo img {
+  max-width: 10%;
+}
 #bingo button {
     display: block;
     margin-left:auto;
@@ -164,10 +168,8 @@ body {
 /* comment la classe si vous ne voulez pas avoir de rotation sur les images de la bannière bingo*/
 .rotating {
     display: inline;
-    /*
     position: relative;
     animation: rotate 2s linear infinite;
-    */
 }
 
 .hidden {
@@ -192,55 +194,41 @@ body {
 #menuToggle .relative {
   position:relative;
 }
-
-#toggleTransparence {
+#switchTransparence {
+  visibility: hidden;
   position: absolute;
-  right: 40px;
-  bottom:5px;
-  background: none;
+  height: 0;
+  width: 0;
 }
+.switchTrsp {
+  position: absolute;
+  right: 0px;
+  top: 0.5rem;
+  background: var(--toggle-bg-color);
+  height: 30px;
+  width: 50px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.switchTrsp:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  background: var(--toggle-cursor-color);
+  transition: 0.5s;
 
-#toggleTransparence input[type=checkbox]{
-    height: 0;
-    width: 0;
-    visibility: hidden;
-  }
-  
-#toggleTransparence label {
-    cursor: pointer;
-    text-indent: -9999px;
-    width: 60px;
-    height: 30px;
-    background: var(--toggle-bg-color);
-    display: block;
-    border-radius: 30px;
-    position: relative;
-  }
-  
-#toggleTransparence label:after {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 20px;
-    height: 20px;
-    background: var(--toggle-cursor-color);
-    border-radius: 90px;
-    transition: 0.3s;
-  }
-  
-#toggleTransparence input:checked + label {
-    background: var(--toggle-valid-color);
-  }
-  
-#toggleTransparence input:checked + label:after {
-    left: calc(100% - 5px);
-    transform: translateX(-100%);
-  }
-#toggleTransparence label:active:after {
-    width: 30px;
-  }
-
+}
+#switchTransparence:checked ~ .switchTrsp {
+  background: var(--toggle-valid-color);
+}
+#switchTransparence:checked ~ .switchTrsp:after{
+  transform: translateX(20px);
+  background: var(--toggle-cursor-color);
+} 
 /****** Volume ******/
 #inputSound {
     position: absolute;

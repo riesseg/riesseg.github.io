@@ -24,6 +24,7 @@ export function resetGrid(){
 }
 
 export function setTransparencyMode(transparencyTrigger) {
+  console.log("changing:" +transparencyTrigger)
   if(transparencyTrigger) {
     $("body").removeClass('bg-normal').addClass('bg-streamer');
     startDisplayInterval();
@@ -62,4 +63,18 @@ export function setVolume(volume) {
 
 export function changeAlign(align) {
   $(".container").css("justify-content",align);
+}
+export function convertBool(bool) {
+  if (bool == 'false') { return false}
+  return true;
+}
+export function revertCheck(input) {
+  if ($(input).is(':checked'))
+  {
+    $(input).prop('checked', false);
+  }
+  else
+  {
+    $(input).prop('checked', true);
+  }
 }
